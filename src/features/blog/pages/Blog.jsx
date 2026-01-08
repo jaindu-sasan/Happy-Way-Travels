@@ -9,45 +9,54 @@ const Blog = () => {
     <div className="font-poppins text-gray-800">
       
       {/* 🌅 HERO SECTION — Modern + Interactive CTA */}
-      <section
-        className="relative h-[70vh] bg-cover bg-center flex flex-col items-center justify-center"
-        style={{ backgroundImage: "url('/assets/blopage/banner.webp')" }}
-        
-      >
-        {/* Dark elegant overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/20"></div>
+     <section className="relative h-[70vh] flex flex-col items-center justify-center overflow-hidden">
 
-        {/* Text */}
-        <div className="relative z-10 text-center px-6">
-          <motion.h1
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="text-4xl md:text-6xl font-bold text-white drop-shadow-xl"
-          >
-            Travel Stories & Guides
-          </motion.h1>
+  {/* Hero Image — High Priority */}
+  <img
+    src="/assets/blopage/banner.webp"
+    alt="Travel Stories & Guides"
+    className="absolute inset-0 w-full h-full object-cover"
+    fetchpriority="high"
+    decoding="async"
+    width="1920"
+    height="1080"
+  />
 
-          <motion.p
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2 }}
-            className="text-gray-200 text-lg md:text-xl mt-3 max-w-2xl mx-auto"
-          >
-            Discover tips, destinations & real adventures from our travel experts.
-          </motion.p>
+  {/* Dark elegant overlay */}
+  <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/20"></div>
 
-          {/* CTA Button */}
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href="#latest-articles"
-            className="mt-8 inline-block bg-[#105050] text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:bg-[#0e3c3c] transition-colors duration-300"
-          >
-            Explore Destinations
-          </motion.a>
-        </div>
-      </section>
+  {/* Text */}
+  <div className="relative z-10 text-center px-6">
+    <motion.h1
+      initial={{ opacity: 0, y: 25 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+      className="text-4xl md:text-6xl font-bold text-white drop-shadow-xl"
+    >
+      Travel Stories & Guides
+    </motion.h1>
+
+    <motion.p
+      initial={{ opacity: 0, y: 25 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.9, ease: "easeOut" }}
+      className="text-gray-200 text-lg md:text-xl mt-3 max-w-2xl mx-auto"
+    >
+      Discover tips, destinations & real adventures from our travel experts.
+    </motion.p>
+
+    {/* CTA Button */}
+    <motion.a
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      href="#latest-articles"
+      className="mt-8 inline-block bg-[#105050] text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:bg-[#0e3c3c] transition-colors duration-300"
+    >
+      Explore Destinations
+    </motion.a>
+  </div>
+</section>
+
 
       {/* 📰 BLOG GRID SECTION */}
       <section id="latest-articles" className="py-20 bg-white">

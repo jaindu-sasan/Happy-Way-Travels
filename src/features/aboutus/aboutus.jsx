@@ -12,7 +12,8 @@ export default function About() {
           src="/assets/AboutUs/banner.webp"
           alt="About ExploreLanka Travels"
           className="absolute inset-0 w-full h-full object-cover"
-          loading="eager"
+          fetchpriority="high"
+        
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/20 flex items-center">
           <div className="max-w-7xl mx-auto px-6 text-center">

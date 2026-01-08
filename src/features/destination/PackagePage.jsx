@@ -198,7 +198,8 @@ function goToDetails(pkgId) {
   {/* Background Image */}
   <img
     src="assets/Package page/banner.jpg"
-    alt="Sri Lanka hero"
+    alt="Sri Lanka Tourism"
+    fetchpriority="high"
     className="absolute inset-0 w-full h-full object-cover"
   />
 

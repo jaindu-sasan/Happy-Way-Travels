@@ -5,47 +5,60 @@ import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 export default function Contact() {
   return (
     <div className="font-poppins text-gray-800">
-      {/* HERO — Mobile Optimized */}
-      <section className="relative min-h-[80vh] md:min-h-[70vh] flex items-center pt-20 md:pt-0 pb-20">
-        <div className="absolute inset-0 bg-[url('/assets/ContactUS/contactushero.jpg')] bg-cover bg-center md:bg-fixed" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0f3f3f]/70 via-[#0f3f3f]/60 to-transparent" />
+ {/* HERO — Performance Optimized */}
+<section className="relative min-h-[80vh] md:min-h-[70vh] flex items-center pt-20 md:pt-0 pb-20 overflow-hidden">
+  
+  {/* Hero Image (High Priority) */}
+  <img
+    src="/assets/ContactUS/contactushero.jpg"
+    alt="Sri Lanka Tourism Contact"
+    className="absolute inset-0 w-full h-full object-cover"
+    fetchpriority="high"
+    decoding="async"
+    width="1920"
+    height="1080"
+  />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-6 grid md:grid-cols-2 gap-10 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9 }}
-          >
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white leading-tight">
-              Let’s Talk About
-              <span className="block text-[#9ad6d6]">Your Next Journey</span>
-            </h1>
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-r from-[#0f3f3f]/70 via-[#0f3f3f]/60 to-transparent" />
 
-            <p className="mt-4 md:mt-6 text-sm sm:text-lg text-gray-200 max-w-xl">
-              Questions, custom tours, or quick bookings — our travel experts are
-              ready to help you.
-            </p>
+  <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-6 grid md:grid-cols-2 gap-10 items-center">
+    <motion.div
+      initial={{ opacity: 0, x: -30 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
+      <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white leading-tight">
+        Let’s Talk About
+        <span className="block text-[#9ad6d6]">Your Next Journey</span>
+      </h1>
 
-            <div className="flex flex-col sm:flex-row gap-4 mt-6 md:mt-8">
-              <a
-                href="https://wa.me/94771234567"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-green-500 text-white px-6 py-3 md:py-4 rounded-full font-semibold hover:scale-105 transition w-full sm:w-auto"
-              >
-                <MessageCircle size={20} /> WhatsApp Us
-              </a>
+      <p className="mt-4 md:mt-6 text-sm sm:text-lg text-gray-200 max-w-xl">
+        Questions, custom tours, or quick bookings — our travel experts are
+        ready to help you.
+      </p>
 
-              <a
-                href="#contact-form"
-                className="inline-flex items-center justify-center gap-2 bg-white/90 text-[#105050] px-6 py-3 md:py-4 rounded-full font-semibold hover:bg-white transition w-full sm:w-auto"
-              >
-                Send Message
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <div className="flex flex-col sm:flex-row gap-4 mt-6 md:mt-8">
+        <a
+          href="https://wa.me/94771234567"
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center justify-center gap-2 bg-green-500 text-white px-6 py-3 md:py-4 rounded-full font-semibold hover:scale-105 transition w-full sm:w-auto"
+        >
+          <MessageCircle size={20} /> WhatsApp Us
+        </a>
+
+        <a
+          href="#contact-form"
+          className="inline-flex items-center justify-center gap-2 bg-white/90 text-[#105050] px-6 py-3 md:py-4 rounded-full font-semibold hover:bg-white transition w-full sm:w-auto"
+        >
+          Send Message
+        </a>
+      </div>
+    </motion.div>
+  </div>
+</section>
+
 
       {/* INFO STRIP — Smooth Overlap */}
       <section className="relative z-20 mt-8 md:mt-[-5rem]">
