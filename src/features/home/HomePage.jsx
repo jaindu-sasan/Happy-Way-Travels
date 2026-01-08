@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import { Star, Users, Shield, Globe } from "lucide-react";
 import { packagesdata } from "../destination/data/PackageData"
 import { blogPosts } from "../blog/data/blogData";
+import { createSlug } from "../destination/components/PackageContent";
+
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -198,7 +200,7 @@ export default function HomePage() {
                 <div className="text-xs text-[#556565]">Per person (approx)</div>
               </div>
               <div>
-                <Link to={`/packages/${p.id}`} className="inline-block bg-[#105050] text-white px-4 py-2 rounded-full text-sm font-semibold  transition">
+                <Link to={`/packages/${createSlug(p.name)}`} className="inline-block bg-[#105050] text-white px-4 py-2 rounded-full text-sm font-semibold  transition">
                   View
                 </Link>
               </div>
