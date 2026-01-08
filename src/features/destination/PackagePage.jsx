@@ -104,7 +104,7 @@ function PackageCard({ pkg, onView }) {
         <div className="mt-4 flex items-center justify-between gap-3 self-center">
          
           <button
-            onClick={() => onView(pkg.id)}
+            onClick={() => goToDetails(pkg.id)}
             className="ml-auto bg-emerald-600 text-white px-4 py-2 rounded-full text-sm hover:bg-emerald-700 transition"
             aria-label={`View details for ${pkg.name}`}
           >
