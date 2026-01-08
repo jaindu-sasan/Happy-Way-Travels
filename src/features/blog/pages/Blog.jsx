@@ -16,6 +16,7 @@ const Blog = () => {
     src="/assets/blopage/banner.webp"
     alt="Travel Stories & Guides"
     className="absolute inset-0 w-full h-full object-cover"
+    loading="lazy"
     fetchpriority="high"
     decoding="async"
     width="1920"
