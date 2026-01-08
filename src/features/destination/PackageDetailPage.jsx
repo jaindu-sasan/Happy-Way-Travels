@@ -162,8 +162,11 @@ function ItineraryPreview({ pkg, activeDay, setActiveDay, selectedDay, setSelect
 // ⭐ MAIN PAGE
 // -----------------------------
 export default function PackageDetail() {
-  const { id } = useParams();
-  const pkg = packagesdata.find((p) => p.id === parseInt(id));
+  const { slug  } = useParams();
+  const pkg = packagesdata.find(
+  (p) => createSlug(p.name) === slug
+);
+
 
   if (!pkg) {
     return <div className="p-6 text-center text-red-600">Package not found.</div>;

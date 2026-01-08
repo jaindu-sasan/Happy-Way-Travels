@@ -104,7 +104,7 @@ function PackageCard({ pkg, onView }) {
         <div className="mt-4 flex items-center justify-between gap-3 self-center">
          
           <button
-            onClick={() => goToDetails(pkg.id)}
+            onClick={() => onView(pkg.id)}
             className="ml-auto bg-emerald-600 text-white px-4 py-2 rounded-full text-sm hover:bg-emerald-700 transition"
             aria-label={`View details for ${pkg.name}`}
           >
@@ -185,7 +185,7 @@ function goToDetails(pkgId) {
   const pkg = packages.find((p) => p.id === pkgId);
   if (!pkg) return;
 
-  const slug = createSlug(pkg.name); // ← createSlug not defined here
+   // ← createSlug not defined here
   navigate(`/packages/${slug}`);
 }
 
