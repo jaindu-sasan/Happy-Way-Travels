@@ -185,7 +185,7 @@ function goToDetails(pkgId) {
   const pkg = packages.find((p) => p.id === pkgId);
   if (!pkg) return;
 
-   // ← createSlug not defined here
+  const slug = createSlug(pkg.name); // ← createSlug not defined here
   navigate(`/packages/${slug}`);
 }
 
