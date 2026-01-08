@@ -146,7 +146,7 @@ export const packagesdata = [
     name: 'Kandy Cultural & Tea Factory Day Tour - Sri Lanka Heritage Experience',
     position: [7.2906, 80.6337],
     description: 'Visit Sri Lanka’s cultural capital Kandy, including the Temple of the Tooth Relic and Peradeniya Botanical Garden.',
-    image: '/assets/package 6/Kandy Cultural & Tea Factory Day Tour.jpg',
+    image: '/assets/package 6/Kandy Cultural & Tea Factory Day Tour.webp',
    
     type: 'Cultural / Nature',
     duration: '1 Day',
