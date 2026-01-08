@@ -5,6 +5,7 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { motion } from 'framer-motion';
 import { useState, useRef, useEffect, useMemo } from 'react';
+import { createSlug } from "./components/PackageContent";
 
 // Fix marker icon
 delete L.Icon.Default.prototype._getIconUrl;
@@ -46,7 +47,8 @@ function RecommendedPackages({ currentId }) {
             key={item.id}
             whileHover={{ scale: 1.03 }}
             className="bg-white shadow-lg rounded-2xl overflow-hidden cursor-pointer border border-gray-200"
-            onClick={() => window.open(`/packages/${item.id}`, "_blank")}
+             onClick={() => navigate(`/packages/${createSlug(item.name)}`)}
+
           >
             <img
               src={item.image}

@@ -34,7 +34,7 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/destinations" element={<DestinationPage />} />
-              <Route path="/packages/:id" element={<PackageDetailPage />} />
+              <Route path="/packages/:slug" element={<PackageDetailPage />} />
               <Route path="/customize-trip" element={<CustomizeTripPage />} />
               <Route path="/about" element={<About />} />
               <Route path="/blog" element={<Blog />} />

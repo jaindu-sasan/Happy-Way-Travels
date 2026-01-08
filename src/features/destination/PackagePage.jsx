@@ -3,6 +3,7 @@ import React, { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { packagesdata } from './data/PackageData'; 
+import PackageContent, { createSlug } from "./components/PackageContent";
 
 import {
   MapPin,
@@ -15,6 +16,11 @@ import {
   Filter,
 } from "lucide-react";
 
+
+export const metadata = {
+  title: "Sri Lanka Tour Packages",
+  description: "Discover the best Sri Lanka tour packages",
+};
 /**
  * NOTE: heroImageUrl uses the local path you uploaded.
  * The system/dev environment will transform this path into a usable asset URL.
@@ -175,9 +181,14 @@ export default function PackagePage({ packages = packagesdata }) {
     return data;
   }, [packages, filters, sort, search]);
 
-  function goToDetails(id) {
-    navigate(`/packages/${id}`);
-  }
+function goToDetails(pkgId) {
+  const pkg = packages.find((p) => p.id === pkgId);
+  if (!pkg) return;
+
+  const slug = createSlug(pkg.name); // ← createSlug not defined here
+  navigate(`/packages/${slug}`);
+}
+
 
   return (
     <div className="min-h-screen bg-slate-50">
