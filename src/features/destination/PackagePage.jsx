@@ -92,7 +92,7 @@ function PackageCard({ pkg, onView }) {
               <Clock size={16} /> <span>{pkg.duration}</span>
             </div>
             <div className="flex items-center gap-2">
-              <Tag size={16} /> <span>From LKR {formatPrice(pkg.price)}</span>
+              <Tag size={16} /> <span>From USD {formatPrice(pkg.price)}</span>
             </div>
           </div>
 

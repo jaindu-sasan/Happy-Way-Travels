@@ -150,7 +150,7 @@ export const packagesdata = [
    
     type: 'Cultural / Nature',
     duration: '1 Day',
-    price: 20000,
+    price: 215,
     includes: ['Transport', 'Guide'],
     itinerary: [
       {
