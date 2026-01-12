@@ -197,7 +197,7 @@ function goToDetails(pkgId) {
 <header className="relative w-full min-h-[60vh] md:h-[70vh]">
   {/* Background Image */}
   <img
-    src="assets/Package page/banner.jpg"
+    src="https://res.cloudinary.com/dx9lsxwg3/image/upload/v1768236258/banner_wbivd7.jpg"
     alt="Sri Lanka Tourism"
     fetchpriority="high"
     className="absolute inset-0 w-full h-full object-cover"

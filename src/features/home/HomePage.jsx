@@ -51,7 +51,7 @@ export default function HomePage() {
   {/* Background Video */}
   <video
     className="absolute inset-0 w-full h-full object-cover"
-    src="https://res.cloudinary.com/dx9lsxwg3/video/upload/v1768235217/hero-video.mp4"
+    src="https://res.cloudinary.com/dx9lsxwg3/video/upload/v1768235986/1231_5_ugbh8z.mp4"
     autoPlay
     muted
     loop

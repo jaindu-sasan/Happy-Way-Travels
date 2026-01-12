@@ -13,7 +13,7 @@ const Blog = () => {
 
   {/* Hero Image — High Priority */}
   <img
-    src="/assets/blopage/banner.webp"
+    src="https://res.cloudinary.com/dx9lsxwg3/image/upload/v1768236412/banner_sfcpts.webp"
     alt="Travel Stories & Guides"
     className="absolute inset-0 w-full h-full object-cover"
     loading="lazy"

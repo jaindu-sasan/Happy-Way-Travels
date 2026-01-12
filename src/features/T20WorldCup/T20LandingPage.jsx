@@ -120,7 +120,7 @@ ${selectedMatches.map((m) => `• ${m}`).join("\n")}
      <section
   className="relative min-h-[70vh] text-white"
   style={{
-    backgroundImage: "url('/assets/t20worldcup/sri-lanka-cricket.jpg')",
+    backgroundImage: "url(https://res.cloudinary.com/dx9lsxwg3/image/upload/v1768236186/sri-lanka-cricket_bupmz4.jpg)",
     backgroundSize: "cover",
     backgroundPosition: "center",
   }}
