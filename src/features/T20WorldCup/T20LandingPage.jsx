@@ -351,12 +351,7 @@ ${selectedMatches.map((m) => `• ${m}`).join("\n")}
       </section>
 
       {/* MOBILE WHATSAPP STICKY */}
-      <a
-        href="https://api.whatsapp.com/send?phone=94719201718"
-        className="fixed bottom-4 right-4 z-50 md:hidden bg-green-600 text-white px-5 py-3 rounded-full shadow-lg font-semibold text-sm"
-      >
-        📞 WhatsApp
-      </a>
+
     </div>
   );
 }

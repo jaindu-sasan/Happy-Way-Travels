@@ -34,7 +34,7 @@ export default function Footer() {
           {/* BRAND */}
           <div>
             <h5 className="text-2xl font-bold tracking-wide">
-              Visit<span className="text-[#7EE6E6]">SriLanka</span>
+              Happy<span className="text-[#7EE6E6]">Way</span> Travels
             </h5>
             <p className="text-sm text-[#D9FFFF] mt-4 leading-relaxed">
               Discover Sri Lanka through curated journeys, local expertise,

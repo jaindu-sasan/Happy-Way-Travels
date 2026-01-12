@@ -43,6 +43,7 @@ function App() {
             </Routes>
           </main>
           <Footer />
+          <WhatsAppButton /> {/* 👈 visible on ALL pages */}
         </div>
       
     </Router>
