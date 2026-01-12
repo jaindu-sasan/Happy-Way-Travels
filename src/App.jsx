@@ -14,6 +14,7 @@ import Blog from './features/blog/pages/Blog';
 import BlogPost from './features/blog/pages/BlogPost';
 import ScrollToTop from "./components/ScrollToTop";
 import T20LandingPage from './features/T20WorldCup/T20LandingPage';
+import WhatsAppButton from "./components/WhatsAppButton";
 
 
 // Common Components

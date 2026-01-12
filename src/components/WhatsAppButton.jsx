@@ -1,6 +1,6 @@
 import { MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
-import WhatsAppButton from "./components/WhatsAppButton";
+
 
 export default function WhatsAppButton() {
   return (
