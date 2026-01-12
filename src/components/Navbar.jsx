@@ -62,7 +62,7 @@ export default function Navbar() {
         {/* ---------------- LOGO ---------------- */}
         <Link to="/" className="ml-auto md:ml-0 flex items-center">
           <img
-            src="/assets/logo.png"
+            src="/assets/logo.jpg"
             alt="Visit Sri Lanka"
             className={`h-10 w-auto transition-all duration-300
               ${
