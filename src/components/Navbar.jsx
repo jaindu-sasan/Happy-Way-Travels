@@ -62,9 +62,9 @@ export default function Navbar() {
         {/* ---------------- LOGO ---------------- */}
         <Link to="/" className="ml-auto md:ml-0 flex items-center">
           <img
-            src="/assets/logo.jpg"
+            src="/assets/logo.png"
             alt="Visit Sri Lanka"
-            className={`h-10 w-auto transition-all duration-300
+            className={`h-16 w-auto transition-all duration-300
               ${
                 scrolled
                   ? "brightness-100"
