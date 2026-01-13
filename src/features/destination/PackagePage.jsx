@@ -43,6 +43,10 @@ const uniq = (arr) => Array.from(new Set(arr));
 const formatPrice = (n) =>
   n.toLocaleString(undefined, { minimumFractionDigits: 0 });
 
+const getDays = (duration) => {
+  const num = parseInt(duration, 10);
+  return isNaN(num) ? 0 : num;
+};
 /* -------------------------
    Package Card component
    ------------------------- */
@@ -127,6 +131,7 @@ export default function PackagePage({ packages = packagesdata }) {
   const [filters, setFilters] = useState({
     region: "",
     type: "",
+    duration: "",
     price: [0, 9999999],
   });
 
@@ -143,6 +148,25 @@ export default function PackagePage({ packages = packagesdata }) {
     if (filters.type) {
       data = data.filter((p) => p.type === filters.type);
     }
+
+            if (filters.duration) {
+      data = data.filter((p) => {
+        const days = getDays(p.duration);
+
+        switch (filters.duration) {
+          case "1":
+            return days === 1;
+          case "4-6":
+            return days >= 4 && days <= 6;
+          case "7+":
+            return days >= 7;
+          default:
+            return true;
+        }
+      });
+    }
+
+    
     if (filters.price) {
       const [min, max] = filters.price;
       data = data.filter((p) => p.price >= min && p.price <= max);
@@ -277,6 +301,24 @@ function goToDetails(pkgId) {
 
       {/* PACKAGES GRID */}
       <main id="packages-section" className="max-w-7xl mx-auto px-6 py-10">
+
+          <div className="mb-6 flex flex-wrap gap-4">
+          <select
+            value={filters.duration}
+            onChange={(e) =>
+              setFilters((prev) => ({
+                ...prev,
+                duration: e.target.value,
+              }))
+            }
+            className="px-4 py-2 rounded-full border text-sm"
+          >
+            <option value="">All Durations</option>
+            <option value="1">1 Day</option>
+            <option value="4-6">4–6 Days</option>
+            <option value="7+">7+ Days</option>
+          </select>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {visible.length > 0 ? (
             visible.map((pkg) => <PackageCard key={pkg.id} pkg={pkg} onView={goToDetails} />)
