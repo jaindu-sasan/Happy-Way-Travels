@@ -5,41 +5,38 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
   const activeDay = pkg.itinerary[selectedDay];
   const totalDays = pkg.itinerary.length;
   const [showDetails, setShowDetails] = useState(false);
+  const [dragX, setDragX] = useState(0); // track current drag offset
+  const [direction, setDirection] = useState(0); // swipe direction
 
-  // Use day-specific price if available, otherwise fallback to package price
   const priceToShow = activeDay.price ?? pkg.price;
 
-  // Controls swipe thresholds
-  const swipeConfidenceThreshold = 100; // pixels
-  const swipePower = (offset) => Math.abs(offset); // measure swipe distance
+  const swipeThreshold = 80; // px
 
   return (
     <section className="lg:hidden relative mb-16">
 
       {/* IMAGE STORY */}
       <motion.div
-        key={selectedDay}
         drag="x"
         dragConstraints={{ left: 0, right: 0 }}
         dragElastic={0.3}
-        dragMomentum={true}
+        dragMomentum={false} // we'll handle momentum manually
+        onDrag={(e, info) => setDragX(info.offset.x)}
         onDragEnd={(e, info) => {
-          const swipe = swipePower(info.offset.x);
-          if (swipe > swipeConfidenceThreshold) {
-            if (info.offset.x < 0 && selectedDay < totalDays - 1) {
-              // swipe left → next day
-              setSelectedDay(selectedDay + 1);
-              setShowDetails(false);
-            } else if (info.offset.x > 0 && selectedDay > 0) {
-              // swipe right → previous day
-              setSelectedDay(selectedDay - 1);
-              setShowDetails(false);
-            }
+          if (info.offset.x < -swipeThreshold && selectedDay < totalDays - 1) {
+            setDirection(1); // swipe left → next
+            setDragX(0);
+            setTimeout(() => setSelectedDay(selectedDay + 1), 150);
+          } else if (info.offset.x > swipeThreshold && selectedDay > 0) {
+            setDirection(-1); // swipe right → previous
+            setDragX(0);
+            setTimeout(() => setSelectedDay(selectedDay - 1), 150);
+          } else {
+            setDragX(0); // snap back
           }
+          setShowDetails(false);
         }}
-        initial={{ x: 0, opacity: 0.9 }}
-        animate={{ x: 0, opacity: 1 }}
-        exit={{ x: 0, opacity: 0.8 }}
+        animate={{ x: dragX }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
         className="h-[75vh] rounded-2xl overflow-hidden shadow-xl relative touch-pan-x"
       >
@@ -95,15 +92,8 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
             }}
           >
             <div className="w-12 h-1 bg-gray-300 rounded-full mx-auto mb-4" />
-
-            <h3 className="text-2xl font-bold text-[#105050] mb-3">
-              {activeDay.title}
-            </h3>
-
-            <p className="text-gray-700 leading-relaxed whitespace-pre-line">
-              {activeDay.description}
-            </p>
-
+            <h3 className="text-2xl font-bold text-[#105050] mb-3">{activeDay.title}</h3>
+            <p className="text-gray-700 leading-relaxed whitespace-pre-line">{activeDay.description}</p>
             <button
               onClick={() => setShowDetails(false)}
               className="w-full mt-6 bg-gray-200 py-3 rounded-full font-semibold"
@@ -129,7 +119,6 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
         <div className="text-center text-xl font-bold text-[#105050]">
           ${priceToShow} / 2 person
         </div>
-
         <button
           onClick={() => {
             if (typeof window.setShowBookingModal === "function") {
