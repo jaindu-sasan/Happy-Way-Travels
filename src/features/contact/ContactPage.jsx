@@ -1,8 +1,37 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle,CheckCircle } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function Contact() {
+
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const form = e.target;
+    const data = new FormData(form);
+
+    const response = await fetch("https://formspree.io/f/mykkzdnz", {
+      method: "POST",
+      body: data,
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    setLoading(false);
+
+    if (response.ok) {
+      setSubmitted(true);
+      form.reset();
+    }
+  };
+
+
   return (
     <div className="font-poppins text-gray-800">
  {/* HERO — Performance Optimized */}
@@ -93,48 +122,53 @@ export default function Contact() {
       {/* FORM + EXTRA INFO */}
       <section id="contact-form" className="py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-5 md:px-6 grid lg:grid-cols-2 gap-12 items-start">
+          
           {/* FORM */}
-          <motion.form
+          <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            onSubmit={(e) => e.preventDefault()}
-            className="bg-white rounded-3xl shadow-2xl p-6 sm:p-10"
+            className="bg-white rounded-3xl shadow-2xl p-8"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#105050] mb-2">
-              Send Us a Message
-            </h2>
+            {!submitted ? (
+              <form onSubmit={handleSubmit}>
+                <h2 className="text-3xl font-bold text-[#105050] mb-2">
+                  Send Us a Message
+                </h2>
+                <p className="text-gray-500 mb-8">
+                  We usually reply within a few hours.
+                </p>
 
-            <p className="text-gray-500 mb-8">
-              We usually reply within a few hours.
-            </p>
+                <input className="input mb-5" name="name" placeholder="Your Name" required />
+                <input className="input mb-5" name="email" type="email" placeholder="Email Address" required />
+                <input className="input mb-5" name="phone" placeholder="Phone Number (WhatsApp preferred)" required />
+                <input className="input mb-5" name="country" placeholder="Country" required />
+                <textarea className="input h-32 mb-6" name="message" placeholder="What's on your mind?" required />
 
-            <input className="input mb-5" placeholder="Your Name" required />
-            <input
-              className="input mb-5"
-              placeholder="Email Address"
-              type="email"
-              required
-            />
-            <input
-              className="input mb-5"
-              placeholder="Phone Number (WhatsApp preferred)"
-              type="tel"
-              required
-            />
-            <input className="input mb-5" placeholder="Country" required />
-
-            <textarea
-              className="input h-32 mb-6"
-              placeholder="Whats on your mind?"
-              required
-            />
-
-            <button className="w-full bg-[#105050] text-white py-4 rounded-xl font-semibold hover:bg-[#206070] transition">
-              Send Message
-            </button>
-          </motion.form>
+                <button
+                  disabled={loading}
+                  className="w-full bg-[#105050] text-white py-4 rounded-xl font-semibold hover:bg-[#206070] transition"
+                >
+                  {loading ? "Sending..." : "Send Message"}
+                </button>
+              </form>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="text-center py-12"
+              >
+                <CheckCircle size={60} className="mx-auto text-green-500 mb-4" />
+                <h3 className="text-2xl font-bold text-[#105050] mb-3">
+                  Thank You! 🌿
+                </h3>
+                <p className="text-gray-600 text-lg">
+                  We’ve received your message and one of our travel experts will
+                  contact you shortly.
+                </p>
+              </motion.div>
+            )}
+          </motion.div>
 
           {/* EXTRA INFO PANEL */}
           <motion.div

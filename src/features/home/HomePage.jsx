@@ -152,11 +152,7 @@ export default function HomePage() {
         className="w-full h-[320px] md:h-[380px] object-cover"
       />
 
-      <div className="absolute inset-0 bg-black/30 flex items-end p-5">
-        <p className="text-sm">
-          Colombo • Kandy • Galle • Match-based travel planning
-        </p>
-      </div>
+  
     </motion.div>
 
   </div>
