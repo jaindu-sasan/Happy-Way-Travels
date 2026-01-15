@@ -6,6 +6,9 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
   const totalDays = pkg.itinerary.length;
   const [showDetails, setShowDetails] = useState(false);
 
+  const swipeThreshold = 60; // very small, like Instagram
+
+
   // Use day-specific price if available, otherwise fallback to package price
   const priceToShow = activeDay.price || pkg.price;
 
@@ -81,18 +84,27 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
       {/* DETAILS SLIDE UP */}
       <AnimatePresence>
         {showDetails && (
-          <motion.div
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "100%" }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
-            className="fixed inset-0 z-50 bg-white rounded-t-3xl p-6 overflow-y-auto"
-            drag="y"
-            dragConstraints={{ top: 0, bottom: 0 }}
-            onDragEnd={(e, info) => {
-              if (info.offset.y > 120) setShowDetails(false);
-            }}
-          >
+       <motion.div
+  key={selectedDay}
+  drag="x"
+  dragConstraints={{ left: 0, right: 0 }}
+  dragElastic={0.9}        // very smooth
+  dragMomentum={true}
+  onDragEnd={(e, info) => {
+    if (info.offset.x < -swipeThreshold && selectedDay < totalDays - 1) {
+      setSelectedDay(selectedDay + 1);
+      setShowDetails(false);
+    } else if (info.offset.x > swipeThreshold && selectedDay > 0) {
+      setSelectedDay(selectedDay - 1);
+      setShowDetails(false);
+    }
+  }}
+  initial={{ x: 0 }}
+  animate={{ x: 0 }}
+  transition={{ duration: 0.15, ease: "easeOut" }} // NO spring
+  className="h-[75vh] rounded-2xl overflow-hidden shadow-xl relative touch-pan-x"
+>
+
             <div className="w-12 h-1 bg-gray-300 rounded-full mx-auto mb-4" />
 
             <h3 className="text-2xl font-bold text-[#105050] mb-3">
