@@ -2,6 +2,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LoadScript } from '@react-google-maps/api';
 import 'leaflet/dist/leaflet.css';
+import { Analytics } from "@vercel/analytics/react";
+
 
 // Pages
 import HomePage from '../src/features/home/HomePage';
@@ -27,6 +29,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+       <Analytics />
      
         <div className="flex flex-col min-h-screen">
           <Navbar />
