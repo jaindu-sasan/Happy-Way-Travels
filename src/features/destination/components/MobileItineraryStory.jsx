@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 
 export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay }) {
   const activeDay = pkg.itinerary[selectedDay];
@@ -7,17 +7,11 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
   const [showDetails, setShowDetails] = useState(false);
 
   // Use day-specific price if available, otherwise fallback to package price
-  const priceToShow = activeDay.price || pkg.price;
+  const priceToShow = activeDay.price ?? pkg.price;
 
-  // Ref for success message scrolling
-  const successRef = useRef(null);
-
-  // Scroll to success message when it appears
-  useEffect(() => {
-    if (window.bookingSuccessMessage && successRef.current) {
-      successRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-  }, [window.bookingSuccessMessage]);
+  // Controls swipe thresholds
+  const swipeConfidenceThreshold = 100; // pixels
+  const swipePower = (offset) => Math.abs(offset); // measure swipe distance
 
   return (
     <section className="lg:hidden relative mb-16">
@@ -27,17 +21,26 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
         key={selectedDay}
         drag="x"
         dragConstraints={{ left: 0, right: 0 }}
-        dragElastic={0.2}
+        dragElastic={0.3}
+        dragMomentum={true}
         onDragEnd={(e, info) => {
-          if (info.offset.x < -80 && selectedDay < totalDays - 1) {
-            setSelectedDay(selectedDay + 1);
-            setShowDetails(false);
-          }
-          if (info.offset.x > 80 && selectedDay > 0) {
-            setSelectedDay(selectedDay - 1);
-            setShowDetails(false);
+          const swipe = swipePower(info.offset.x);
+          if (swipe > swipeConfidenceThreshold) {
+            if (info.offset.x < 0 && selectedDay < totalDays - 1) {
+              // swipe left → next day
+              setSelectedDay(selectedDay + 1);
+              setShowDetails(false);
+            } else if (info.offset.x > 0 && selectedDay > 0) {
+              // swipe right → previous day
+              setSelectedDay(selectedDay - 1);
+              setShowDetails(false);
+            }
           }
         }}
+        initial={{ x: 0, opacity: 0.9 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: 0, opacity: 0.8 }}
+        transition={{ type: "spring", stiffness: 300, damping: 30 }}
         className="h-[75vh] rounded-2xl overflow-hidden shadow-xl relative touch-pan-x"
       >
         <img
@@ -54,9 +57,7 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
           <p className="text-sm opacity-90">
             Day {selectedDay + 1} of {totalDays}
           </p>
-          <h2 className="text-2xl font-bold mt-1">
-            {activeDay.title}
-          </h2>
+          <h2 className="text-2xl font-bold mt-1">{activeDay.title}</h2>
         </div>
 
         {/* BOTTOM HINT */}
@@ -126,12 +127,11 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
       {/* PRICE + ENQUIRE BUTTON */}
       <div className="mt-4 mb-8 flex flex-col gap-3 px-4">
         <div className="text-center text-xl font-bold text-[#105050]">
-          ${activeDay.price ?? pkg.price} / 2 person
+          ${priceToShow} / 2 person
         </div>
 
         <button
           onClick={() => {
-            // open booking modal
             if (typeof window.setShowBookingModal === "function") {
               window.setShowBookingModal(true);
             }
@@ -140,16 +140,6 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
         >
           Enquire This Package
         </button>
-
-        {/* Success message for mobile */}
-        {window.bookingSuccessMessage && (
-          <div
-            ref={successRef}
-            className="mt-4 p-3 bg-green-100 text-green-800 rounded-lg text-center font-semibold"
-          >
-            {window.bookingSuccessMessage}
-          </div>
-        )}
       </div>
     </section>
   );
