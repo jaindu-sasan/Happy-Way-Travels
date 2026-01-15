@@ -1,48 +1,42 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 
 export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay }) {
   const activeDay = pkg.itinerary[selectedDay];
   const totalDays = pkg.itinerary.length;
   const [showDetails, setShowDetails] = useState(false);
 
-  const swipeThreshold = 60; // very small, like Instagram
+  // Track tap flash for left/right tap feedback
+  const [tapSide, setTapSide] = useState(null); // "left" | "right" | null
 
-
-  // Use day-specific price if available, otherwise fallback to package price
-  const priceToShow = activeDay.price || pkg.price;
-
-  // Ref for success message scrolling
-  const successRef = useRef(null);
-
-  // Scroll to success message when it appears
-  useEffect(() => {
-    if (window.bookingSuccessMessage && successRef.current) {
-      successRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-  }, [window.bookingSuccessMessage]);
+  const priceToShow = activeDay.price ?? pkg.price;
+  const swipeThreshold = 60;
 
   return (
-    <section className="lg:hidden relative mb-16">
+    <section className="lg:hidden relative mb-16 select-none">
 
-      {/* IMAGE STORY */}
+      {/* IMAGE CAROUSEL */}
       <motion.div
         key={selectedDay}
         drag="x"
         dragConstraints={{ left: 0, right: 0 }}
-        dragElastic={0.2}
+        dragElastic={0.9}
+        dragMomentum={true}
         onDragEnd={(e, info) => {
-          if (info.offset.x < -80 && selectedDay < totalDays - 1) {
+          if (info.offset.x < -swipeThreshold && selectedDay < totalDays - 1) {
             setSelectedDay(selectedDay + 1);
             setShowDetails(false);
-          }
-          if (info.offset.x > 80 && selectedDay > 0) {
+          } else if (info.offset.x > swipeThreshold && selectedDay > 0) {
             setSelectedDay(selectedDay - 1);
             setShowDetails(false);
           }
         }}
+        initial={{ x: 0 }}
+        animate={{ x: 0 }}
+        transition={{ duration: 0.15, ease: "easeOut" }}
         className="h-[75vh] rounded-2xl overflow-hidden shadow-xl relative touch-pan-x"
       >
+        {/* IMAGE */}
         <img
           src={activeDay.image || pkg.image}
           alt={activeDay.title}
@@ -52,19 +46,58 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
         {/* DARK OVERLAY */}
         <div className="absolute inset-0 bg-black/20" />
 
+        {/* TAP ZONES */}
+        <div className="absolute inset-0 z-20 flex">
+
+          {/* LEFT TAP */}
+          <div
+            className="w-[40%] h-full relative"
+            onClick={() => {
+              if (selectedDay > 0) {
+                setSelectedDay(selectedDay - 1);
+                setShowDetails(false);
+                setTapSide("left");
+                setTimeout(() => setTapSide(null), 150);
+              }
+            }}
+          >
+            {tapSide === "left" && (
+              <div className="absolute inset-0 bg-white/30 rounded-xl pointer-events-none animate-fadeTap" />
+            )}
+          </div>
+
+          {/* CENTER (NO ACTION) */}
+          <div className="w-[20%] h-full" />
+
+          {/* RIGHT TAP */}
+          <div
+            className="w-[40%] h-full relative"
+            onClick={() => {
+              if (selectedDay < totalDays - 1) {
+                setSelectedDay(selectedDay + 1);
+                setShowDetails(false);
+                setTapSide("right");
+                setTimeout(() => setTapSide(null), 150);
+              }
+            }}
+          >
+            {tapSide === "right" && (
+              <div className="absolute inset-0 bg-white/30 rounded-xl pointer-events-none animate-fadeTap" />
+            )}
+          </div>
+        </div>
+
         {/* TOP INFO */}
-        <div className="absolute top-4 left-4 right-4 text-white z-10">
+        <div className="absolute top-4 left-4 right-4 text-white z-10 pointer-events-none">
           <p className="text-sm opacity-90">
             Day {selectedDay + 1} of {totalDays}
           </p>
-          <h2 className="text-2xl font-bold mt-1">
-            {activeDay.title}
-          </h2>
+          <h2 className="text-2xl font-bold mt-1">{activeDay.title}</h2>
         </div>
 
         {/* BOTTOM HINT */}
-        <div className="absolute bottom-6 left-0 right-0 text-center text-white text-sm opacity-90">
-          <p>⬅ Swipe days ➡</p>
+        <div className="absolute bottom-6 left-0 right-0 text-center text-white text-sm opacity-90 pointer-events-none">
+          <p>Tap or swipe to change days</p>
           <p className="text-xs mt-1">⬆ Swipe for details</p>
         </div>
       </motion.div>
@@ -84,27 +117,18 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
       {/* DETAILS SLIDE UP */}
       <AnimatePresence>
         {showDetails && (
-       <motion.div
-  key={selectedDay}
-  drag="x"
-  dragConstraints={{ left: 0, right: 0 }}
-  dragElastic={0.9}        // very smooth
-  dragMomentum={true}
-  onDragEnd={(e, info) => {
-    if (info.offset.x < -swipeThreshold && selectedDay < totalDays - 1) {
-      setSelectedDay(selectedDay + 1);
-      setShowDetails(false);
-    } else if (info.offset.x > swipeThreshold && selectedDay > 0) {
-      setSelectedDay(selectedDay - 1);
-      setShowDetails(false);
-    }
-  }}
-  initial={{ x: 0 }}
-  animate={{ x: 0 }}
-  transition={{ duration: 0.15, ease: "easeOut" }} // NO spring
-  className="h-[75vh] rounded-2xl overflow-hidden shadow-xl relative touch-pan-x"
->
-
+          <motion.div
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "100%" }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            className="fixed inset-0 z-50 bg-white rounded-t-3xl p-6 overflow-y-auto"
+            drag="y"
+            dragConstraints={{ top: 0, bottom: 0 }}
+            onDragEnd={(e, info) => {
+              if (info.offset.y > 120) setShowDetails(false);
+            }}
+          >
             <div className="w-12 h-1 bg-gray-300 rounded-full mx-auto mb-4" />
 
             <h3 className="text-2xl font-bold text-[#105050] mb-3">
@@ -138,12 +162,11 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
       {/* PRICE + ENQUIRE BUTTON */}
       <div className="mt-4 mb-8 flex flex-col gap-3 px-4">
         <div className="text-center text-xl font-bold text-[#105050]">
-          ${activeDay.price ?? pkg.price} / 2 person
+          ${priceToShow} / 2 person
         </div>
 
         <button
           onClick={() => {
-            // open booking modal
             if (typeof window.setShowBookingModal === "function") {
               window.setShowBookingModal(true);
             }
@@ -152,17 +175,18 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
         >
           Enquire This Package
         </button>
-
-        {/* Success message for mobile */}
-        {window.bookingSuccessMessage && (
-          <div
-            ref={successRef}
-            className="mt-4 p-3 bg-green-100 text-green-800 rounded-lg text-center font-semibold"
-          >
-            {window.bookingSuccessMessage}
-          </div>
-        )}
       </div>
+
+      {/* Tailwind CSS animation */}
+      <style jsx>{`
+        @keyframes fadeTap {
+          0% { opacity: 0.3; }
+          100% { opacity: 0; }
+        }
+        .animate-fadeTap {
+          animation: fadeTap 0.15s ease-out forwards;
+        }
+      `}</style>
     </section>
   );
 }
