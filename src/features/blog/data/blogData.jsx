@@ -71,7 +71,7 @@ export const blogPosts = [
       {
         title: "Egg Hoppers (Appa)",
         keyword: "egg hoppers Sri Lanka",
-        image: "/assets/blog 2/blog2banner1.jpg",
+        image: "/assets/blog2/appa.webp",
         description:
           "Egg hoppers are a crispy, bowl-shaped pancake served with a soft egg center.",
         highlights: ["Lunu miris","Fish gravy", "Perfect for breakfast or light dinner"]
@@ -299,22 +299,22 @@ export const blogPosts = [
   id: 6,
   title: "Blue Beach Island Sri Lanka – Ultimate Camping Experience by the Ocean",
 
-
   image: "/assets/blog6/blue-beach-island-banner.jpg", // banner image
   featured: true,
   excerpt:
-    "Looking for a peaceful island camping experience in Sri Lanka? Blue Beach Island near Nilaveli offers crystal-clear waters, white sand beaches, snorkeling, and unforgettable nights under the stars.",
+    "Looking for a peaceful island-style escape in Sri Lanka? Blue Beach Island near Nilwella offers turquoise waters, a unique sandbar walk, stunning sunsets, and a calm atmosphere away from crowded beaches.",
+
   content: [
     {
       title: "Where is Blue Beach Island?",
       keyword: "Blue Beach Island Sri Lanka",
       image: "/assets/blog6/blue-beach-location.jpg",
       description:
-        "Blue Beach Island is a small, stunning island located near Nilaveli Beach in Trincomalee. Famous for its vibrant blue waters and calm environment, it is often visited by boat and remains untouched by mass tourism.",
+        "Blue Beach Island is a small scenic island located off the coast of Nilwella near Dikwella in the Matara District, Southern Sri Lanka. The island is best known for its natural sandbar, which allows visitors to walk across to the island during low tide.",
       highlights: [
-        "Located near Nilaveli Beach",
-        "Accessible by boat",
-        "Less crowded and peaceful"
+        "Located near Nilwella & Dikwella (Southern Sri Lanka)",
+        "Accessible via natural sandbar at low tide",
+        "Quiet, scenic, and less commercialized"
       ]
     },
     {
@@ -322,24 +322,23 @@ export const blogPosts = [
       keyword: "island camping Sri Lanka",
       image: "/assets/blog6/blue-beach-camping.jpg",
       description:
-        "Camping on Blue Beach Island is a dream for nature lovers. Tents are set up directly on the beach, allowing you to sleep to the sound of waves and wake up to breathtaking sunrises over the Indian Ocean.",
+        "Camping on or near Blue Beach Island can be arranged through local operators under controlled conditions. The experience focuses on enjoying nature, ocean sounds, sunset views, and a peaceful beach environment rather than luxury facilities.",
       highlights: [
-        "Beachfront tents",
-        "Campfire nights",
-        "Stargazing experience",
-        "Unforgettable sunrise views"
+        "Simple beach camping experience",
+        "Relaxing ocean atmosphere",
+        "Ideal for small groups and nature lovers"
       ]
     },
     {
       title: "Crystal Clear Water & Snorkeling",
-      keyword: "snorkeling Nilaveli",
+      keyword: "snorkeling southern coast Sri Lanka",
       image: "/assets/blog6/blue-beach-snorkeling.jpg",
       description:
-        "The shallow waters around Blue Beach Island are perfect for snorkeling. You’ll find colorful coral reefs, tropical fish, and sometimes even sea turtles swimming nearby.",
+        "The waters around Blue Beach Island are clear and visually stunning, especially on calm days. While snorkeling is limited due to waves and rocky areas, the shallow waters near the sandbar are perfect for wading and enjoying the natural beauty.",
       highlights: [
-        "Clear turquoise water",
-        "Colorful marine life",
-        "Safe for beginners"
+        "Clear blue coastal waters",
+        "Beautiful for swimming on calm days",
+        "Best enjoyed with caution"
       ]
     },
     {
@@ -347,29 +346,32 @@ export const blogPosts = [
       keyword: "island sunset Sri Lanka",
       image: "/assets/blog6/blue-beach-sunset.jpg",
       description:
-        "As the sun sets, the island transforms into a peaceful paradise. Campfires, soft ocean breezes, and a sky full of stars create a magical atmosphere perfect for couples and small groups.",
+        "Blue Beach Island is especially popular for its sunsets. As the sun dips below the horizon, the island offers dramatic ocean views, golden skies, and a peaceful atmosphere that is perfect for photography and quiet moments by the sea.",
       highlights: [
-        "Golden sunsets",
-        "Star-filled night sky",
-        "Perfect for photography"
+        "Spectacular sunset views",
+        "Calm and romantic atmosphere",
+        "Excellent photography spot"
       ]
     },
     {
       title: "Best Time to Visit & Safety Tips",
-      keyword: "best time to visit Nilaveli",
+      keyword: "best time to visit Blue Beach Island",
       image: "/assets/blog6/blue-beach-tips.jpg",
       description:
-        "The best time to visit Blue Beach Island is from May to September when the sea is calm. Always camp with a local operator, respect marine life, and leave no waste behind.",
+        "The best time to visit Blue Beach Island is from December to April, when the southern coast experiences calmer seas. Always check tide levels before crossing the sandbar, avoid rough sea conditions, and respect the natural environment.",
       highlights: [
-        "Best season: May–September",
-        "Always go with licensed operators",
-        "Eco-friendly camping recommended"
+        "Best season: December–April",
+        "Check tides before walking to the island",
+        "Avoid swimming during strong waves",
+        "Practice eco-friendly travel"
       ]
     }
   ],
+
   conclusion:
-    "Blue Beach Island camping offers one of the most peaceful and memorable travel experiences in Sri Lanka. With clear waters, soft sands, and starry nights, it’s the perfect escape for travelers seeking nature, adventure, and tranquility."
-},
+    "Blue Beach Island offers a peaceful coastal escape on Sri Lanka’s southern shoreline. With its unique sandbar access, stunning ocean views, and tranquil sunsets, it is an ideal destination for travelers seeking natural beauty away from busy tourist hotspots."
+}
+
 /*
   id: 7,
   title: "Ella & Nine Arch Bridge Sri Lanka – Complete Travel Guide (2025)",
