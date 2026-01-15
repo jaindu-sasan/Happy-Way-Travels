@@ -74,31 +74,80 @@ export default function Navbar() {
           />
         </Link>
 
-        {/* ---------------- MOBILE DROPDOWN MENU ---------------- */}
-        {isOpen && (
-          <div className="absolute top-full left-6 mt-3 w-56 bg-white rounded-xl shadow-xl md:hidden">
-            <ul className="text-slate-700 font-medium">
-              {[
-                ["/", "Home"],
-                ["/t20-world-cup", "🏏 T20 World Cup"], // ✅ ADDED
-                ["/destinations", "Packages"],
-                ["/blog", "Blog"],
-                ["/about", "About"],
-                ["/contact", "Contact"],
-              ].map(([to, label]) => (
-                <li key={to}>
-                  <NavLink
-                    to={to}
-                    onClick={() => setIsOpen(false)}
-                    className="block px-5 py-3 hover:bg-slate-100 transition"
-                  >
-                    {label}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+{/* ---------------- MOBILE DROPDOWN MENU ---------------- */}
+{isOpen && (
+  <>
+    {/* OVERLAY (click anywhere to close) */}
+    <div
+      className="fixed inset-0 z-40 md:hidden"
+      onClick={() => setIsOpen(false)}
+    ></div>
+
+    {/* MENU */}
+    <div className="absolute top-full left-6 mt-3 w-56 bg-white rounded-xl shadow-xl z-50 md:hidden p-2">
+      <ul className="text-slate-700 font-medium">
+
+        {/* T20 WORLD CUP */}
+        <li>
+          <NavLink
+            to="/t20-world-cup"
+            onClick={() => setIsOpen(false)}
+            className={({ isActive }) =>
+              `block px-5 py-3 rounded-full text-center font-semibold transition-all mb-3
+              ${
+                isActive
+                  ? "bg-yellow-400 text-black"
+                  : scrolled
+                  ? "bg-yellow-300/90 text-black hover:bg-yellow-400"
+                  : "bg-yellow-400/90 text-black hover:bg-yellow-300"
+              }`
+            }
+          >
+            🏏 T20 World Cup
+          </NavLink>
+        </li>
+
+        {/* Other menu items */}
+        {[
+          ["/", "Home"],
+          ["/destinations", "Packages"],
+          ["/blog", "Blog"],
+          ["/about", "About"],
+          ["/contact", "Contact"],
+        ].map(([to, label]) => (
+          <li key={to}>
+            <NavLink
+              to={to}
+              onClick={() => setIsOpen(false)}
+              className="block px-5 py-3 hover:bg-slate-100 transition mb-1"
+            >
+              {label}
+            </NavLink>
+          </li>
+        ))}
+
+        {/* Customize Trip Button */}
+        <li>
+          <Link
+            to="/contact"
+            onClick={() => setIsOpen(false)}
+            className={`block text-center mx-3 my-2 px-4 py-2 rounded-full font-medium transition
+              ${
+                scrolled
+                  ? "bg-emerald-600 text-white hover:bg-emerald-700"
+                  : "bg-emerald-800/80 text-white hover:bg-emerald-600"
+              }
+            `}
+          >
+            Customize Trip
+          </Link>
+        </li>
+      </ul>
+    </div>
+  </>
+)}
+
+
 
         {/* ---------------- DESKTOP NAV ---------------- */}
         <ul className="hidden md:flex gap-8 font-medium items-center">
@@ -167,6 +216,7 @@ export default function Navbar() {
           >
             Customize Trip
           </Link>
+          
         </ul>
       </div>
     </nav>
