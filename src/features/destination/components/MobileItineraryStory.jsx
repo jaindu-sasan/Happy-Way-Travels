@@ -1,23 +1,54 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay }) {
-  const activeDay = pkg.itinerary[selectedDay];
   const totalDays = pkg.itinerary.length;
+
   const [showDetails, setShowDetails] = useState(false);
+  const [tapSide, setTapSide] = useState(null);
 
-  // Track tap flash for left/right tap feedback
-  const [tapSide, setTapSide] = useState(null); // "left" | "right" | null
+  // ⭐ NEW: keep showing previous image until next is ready
+  const [displayDay, setDisplayDay] = useState(selectedDay);
+  const [loadedImages, setLoadedImages] = useState({});
 
+  const activeDay = pkg.itinerary[displayDay];
   const priceToShow = activeDay.price ?? pkg.price;
   const swipeThreshold = 60;
+
+  /* ---------------------------------
+     ⭐ PRELOAD ALL IMAGES
+  --------------------------------- */
+  useEffect(() => {
+    pkg.itinerary.forEach((day) => {
+      const src = day.image || pkg.image;
+      if (!loadedImages[src]) {
+        const img = new Image();
+        img.src = src;
+        img.onload = () => {
+          setLoadedImages((prev) => ({ ...prev, [src]: true }));
+        };
+      }
+    });
+  }, [pkg, loadedImages]);
+
+  /* ---------------------------------
+     ⭐ CHANGE IMAGE ONLY WHEN READY
+  --------------------------------- */
+  useEffect(() => {
+    const nextSrc =
+      pkg.itinerary[selectedDay].image || pkg.image;
+
+    if (loadedImages[nextSrc]) {
+      setDisplayDay(selectedDay);
+    }
+  }, [selectedDay, loadedImages, pkg]);
 
   return (
     <section className="lg:hidden relative mb-16 select-none">
 
       {/* IMAGE CAROUSEL */}
       <motion.div
-        key={selectedDay}
+        key={displayDay}
         drag="x"
         dragConstraints={{ left: 0, right: 0 }}
         dragElastic={0.9}
@@ -40,6 +71,8 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
         <img
           src={activeDay.image || pkg.image}
           alt={activeDay.title}
+          loading="eager"        // ⭐ NEW
+          decoding="async"       // ⭐ NEW
           className="w-full h-full object-cover"
         />
 
@@ -66,7 +99,7 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
             )}
           </div>
 
-          {/* CENTER (NO ACTION) */}
+          {/* CENTER */}
           <div className="w-[20%] h-full" />
 
           {/* RIGHT TAP */}
@@ -90,7 +123,7 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
         {/* TOP INFO */}
         <div className="absolute top-4 left-4 right-4 text-white z-10 pointer-events-none">
           <p className="text-sm opacity-90">
-            Day {selectedDay + 1} of {totalDays}
+            Day {displayDay + 1} of {totalDays}
           </p>
           <h2 className="text-2xl font-bold mt-1">{activeDay.title}</h2>
         </div>
@@ -98,7 +131,7 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
         {/* BOTTOM HINT */}
         <div className="absolute bottom-6 left-0 right-0 text-center text-white text-sm opacity-90 pointer-events-none">
           <p>Tap or swipe to change days</p>
-          <p className="text-xs mt-1">⬆ Swipe for details</p>
+         
         </div>
       </motion.div>
 
@@ -108,7 +141,7 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
           <span
             key={i}
             className={`h-2 w-2 rounded-full transition ${
-              i === selectedDay ? "bg-[#207070]" : "bg-gray-300"
+              i === displayDay ? "bg-[#207070]" : "bg-gray-300"
             }`}
           />
         ))}
@@ -130,15 +163,12 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
             }}
           >
             <div className="w-12 h-1 bg-gray-300 rounded-full mx-auto mb-4" />
-
             <h3 className="text-2xl font-bold text-[#105050] mb-3">
               {activeDay.title}
             </h3>
-
             <p className="text-gray-700 leading-relaxed whitespace-pre-line">
               {activeDay.description}
             </p>
-
             <button
               onClick={() => setShowDetails(false)}
               className="w-full mt-6 bg-gray-200 py-3 rounded-full font-semibold"
@@ -149,7 +179,7 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
         )}
       </AnimatePresence>
 
-      {/* TAP TO OPEN DETAILS */}
+      {/* VIEW DETAILS */}
       {!showDetails && (
         <button
           onClick={() => setShowDetails(true)}
@@ -159,7 +189,7 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
         </button>
       )}
 
-      {/* PRICE + ENQUIRE BUTTON */}
+      {/* PRICE + ENQUIRE */}
       <div className="mt-4 mb-8 flex flex-col gap-3 px-4">
         <div className="text-center text-xl font-bold text-[#105050]">
           ${priceToShow} / 2 person
@@ -177,7 +207,7 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
         </button>
       </div>
 
-      {/* Tailwind CSS animation */}
+      {/* TAP FLASH ANIMATION */}
       <style jsx>{`
         @keyframes fadeTap {
           0% { opacity: 0.3; }
