@@ -179,7 +179,7 @@ export const packagesdata = [
    
     type: 'Cultural / Heritage / Scenic',
     duration: '6 Days / 5 Nights',
-    price: 95000,
+    price: 440,
     airport: { name: "Bandaranaike Intl Airport", lat: 7.1800, lng: 79.8840 },
     includes: [
      
@@ -268,7 +268,7 @@ export const packagesdata = [
    
     type: 'Nature / Wildlife / Cultural',
     duration: '7 Days / 6 Nights',
-    price: 145000,
+    price: 745,
     airport: { name: "Bandaranaike Intl Airport", lat: 7.1800, lng: 79.8840 },
     includes: [
      
@@ -369,7 +369,7 @@ export const packagesdata = [
     
     type: 'Heritage / Adventure / Wildlife / Cultural',
     duration: '9 Days / 8 Nights',
-    price: 185000,
+    price: 905,
     airport: { name: "Bandaranaike Intl Airport", lat: 7.1800, lng: 79.8840 },
     includes: [
       
@@ -494,7 +494,7 @@ export const packagesdata = [
  
     type: 'Cultural / Heritage / Scenic',
     duration: '5 Days / 4 Nights',
-    price: 85000,
+    price: 428,
     airport: { name: "Bandaranaike Intl Airport", lat: 7.1800, lng: 79.8840 },
     includes: [
    
