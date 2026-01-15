@@ -53,64 +53,65 @@ const getDays = (duration) => {
 function PackageCard({ pkg, onView }) {
   return (
     <motion.article
-      layout
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      whileHover={{ scale: 1.02 }}
-      className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col"
-      aria-labelledby={`pkg-${pkg.id}-title`}
+      whileHover={{ y: -6 }}
+      transition={{ duration: 0.25 }}
+      className="bg-white rounded-2xl shadow-lg hover:shadow-xl overflow-hidden flex flex-col"
     >
-      <div className="relative h-52 md:h-44 lg:h-48">
+      {/* IMAGE */}
+      <div className="relative h-56">
         <img
           src={pkg.image}
           alt={pkg.name}
           className="w-full h-full object-cover"
           loading="lazy"
         />
-        {pkg.badge && (
-          <span className="absolute top-3 left-3 bg-amber-400/95 text-sm font-semibold text-amber-900 px-3 py-1 rounded-full shadow">
-            {pkg.badge}
-          </span>
-        )}
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3">
-          <div className="text-white text-sm flex items-center gap-2">
-             <span>{pkg.region}</span>
-            
-            <span>{pkg.type}</span>
-          </div>
-        </div>
+
+        {/* CATEGORY */}
+        <span className="absolute top-4 left-4 bg-black/70 text-white text-xs font-semibold px-3 py-1 rounded-full">
+          {pkg.type}
+        </span>
+
+        {/* GRADIENT */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent"></div>
       </div>
 
-      <div className="p-4 flex-1 flex flex-col justify-between">
-        <div>
-          <h3
-            id={`pkg-${pkg.id}-title`}
-            className="text-lg font-semibold text-slate-800"
-          >
-            {pkg.name}
-          </h3>
-          <p className="text-sm text-slate-500 mt-1">{pkg.description}</p>
+      {/* CONTENT */}
+      <div className="p-5 flex flex-col flex-1">
+        {/* TITLE */}
+        <h3 className="text-lg font-bold text-slate-800 leading-snug">
+          {pkg.name}
+        </h3>
 
-          <div className="mt-3 grid grid-cols-2 gap-2 text-sm text-slate-600">
-            <div className="flex items-center gap-2">
-              <Clock size={16} /> <span>{pkg.duration}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Tag size={16} /> <span>From USD {formatPrice(pkg.price)}</span>
-            </div>
+        {/* DESCRIPTION */}
+        <p className="text-sm text-slate-500 mt-2 line-clamp-2">
+          {pkg.description}
+        </p>
+
+        {/* META */}
+        <div className="mt-4 flex items-center justify-between text-sm text-slate-600">
+          <div className="flex items-center gap-2">
+            <Clock size={16} />
+            <span>{pkg.duration}</span>
           </div>
 
-          <div className="mt-3 text-xs text-slate-500">
-            <strong>Includes:</strong> {pkg.includes.join(", ")}
-          </div>
         </div>
 
-        <div className="mt-4 flex items-center justify-between gap-3 self-center">
-         
+        {/* PRICE + CTA */}
+        <div className="mt-5 flex items-center justify-between gap-4">
+          {/* PRICE BOX */}
+          <div className="bg-emerald-50 border border-emerald-200 rounded-xl px-4 py-2">
+            <div className="text-emerald-700 font-bold text-lg">
+              USD {formatPrice(pkg.price)}
+            </div>
+            <div className="text-xs text-emerald-600">
+              For 2 persons
+            </div>
+          </div>
+
+          {/* CTA */}
           <button
             onClick={() => onView(pkg.id)}
-            className="ml-auto bg-emerald-600 text-white px-4 py-2 rounded-full text-sm hover:bg-emerald-700 transition"
-            aria-label={`View details for ${pkg.name}`}
+            className="bg-emerald-600 text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-emerald-700 transition"
           >
             View Details →
           </button>
@@ -119,6 +120,7 @@ function PackageCard({ pkg, onView }) {
     </motion.article>
   );
 }
+
 
 
 /* -------------------------
