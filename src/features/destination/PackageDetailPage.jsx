@@ -6,6 +6,7 @@ import L from "leaflet";
 import { motion } from 'framer-motion';
 import { useState, useRef, useEffect, useMemo } from 'react';
 import { createSlug } from "./components/PackageContent";
+import MobileItineraryStory from "./components/MobileItineraryStory";
 
 // Fix marker icon
 delete L.Icon.Default.prototype._getIconUrl;
@@ -76,46 +77,19 @@ function RecommendedPackages({ currentId }) {
 // -----------------------------
 // ⭐ ITINERARY PREVIEW COMPONENT
 // -----------------------------
-function ItineraryPreview({ pkg, activeDay, setActiveDay, selectedDay, setSelectedDay }) {
+function ItineraryPreview({ pkg, activeDay, setActiveDay, selectedDay, setSelectedDay,setShowBookingModal }) {
   return (
     <>
       {/* MOBILE */}
-      <section className="py-6 bg-white lg:hidden">
-        <div className="flex flex-col gap-4">
-          <motion.div
-            key={activeDay.title}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="w-full h-80 rounded-2xl overflow-hidden shadow-lg sticky top-4"
-          >
-            <img
-              src={activeDay.image || pkg.image}
-              alt={activeDay.title}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black/50 flex flex-col justify-end p-4">
-              <h3 className="text-xl font-bold text-white mb-2">{activeDay.title}</h3>
-            </div>
-            
-          </motion.div>
+{/* MOBILE STORY EXPERIENCE */}
+<MobileItineraryStory
+  pkg={pkg}
+  selectedDay={selectedDay}
+  setSelectedDay={setSelectedDay}
+  setShowBookingModal={setShowBookingModal}
+/>
 
-          <div className="flex gap-4 overflow-x-auto pb-2">
-            {pkg.itinerary.map((day, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ scale: 1.02 }}
-                className={`flex-shrink-0 min-w-[140px] p-4 rounded-xl shadow-md cursor-pointer 
-                  ${activeDay.title === day.title ? "bg-blue-200 border-l-4 border-[#207070]" : "bg-gray-200"}`}
-                onClick={() => { setActiveDay(day); setSelectedDay(i); }}
-              >
-                <h4 className="font-semibold mb-1 text-sm">Day {i + 1}</h4>
-                <p className="text-xs line-clamp-2">{day.title}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* DESKTOP */}
       <section className="hidden lg:block py-10">
@@ -287,6 +261,14 @@ export default function PackageDetail() {
       mapRef.current.fitBounds(group.getBounds(), { padding: [50, 50] });
     }
   }, [selectedDay, routeStops, pkg]);
+  
+
+useEffect(() => {
+  window.setShowBookingModal = setShowBookingModal;
+  return () => { window.setShowBookingModal = null; }
+}, [setShowBookingModal]);
+
+
 
   // Open popups of selected stops
   useEffect(() => {
@@ -380,6 +362,20 @@ export default function PackageDetail() {
               <div className="bg-white p-6 rounded-2xl shadow-md">
                 <h2 className="text-3xl font-bold text-[#105050] mb-4">{pkg.itinerary[0].title}</h2>
                 <p className="text-gray-700 leading-relaxed text-lg">{pkg.itinerary[0].description}</p>
+              </div>
+
+              {/* PRICE + ENQUIRE BUTTON for mobile */}
+              <div className="lg:hidden mt-4 mb-8 flex flex-col gap-3 px-4">
+                <div className="text-center text-xl font-bold text-[#105050]">
+                  ${pkg.price} / 2 person
+                </div>
+
+                <button
+                  onClick={() => setShowBookingModal(true)}
+                  className="w-full bg-green-700 text-white py-3 rounded-full font-semibold hover:bg-green-800 transition"
+                >
+                  Enquire This Package
+                </button>
               </div>
             </section>
           ) : (
@@ -572,7 +568,7 @@ onSubmit={async (e) => {
     });
 
     if (response.ok) {
-      setSuccessMessage("Booking submitted successfully!");
+      setSuccessMessage("submitted successfully!");
       form.reset();
       setErrors({});
 
@@ -732,7 +728,7 @@ onSubmit={async (e) => {
       </form>
     </div>
   </div>
-)}
+  )}
 
 
 
