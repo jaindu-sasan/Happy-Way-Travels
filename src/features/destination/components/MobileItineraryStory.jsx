@@ -1,43 +1,43 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay }) {
   const activeDay = pkg.itinerary[selectedDay];
   const totalDays = pkg.itinerary.length;
   const [showDetails, setShowDetails] = useState(false);
-  const [dragX, setDragX] = useState(0); // track current drag offset
-  const [direction, setDirection] = useState(0); // swipe direction
 
-  const priceToShow = activeDay.price ?? pkg.price;
+  // Use day-specific price if available, otherwise fallback to package price
+  const priceToShow = activeDay.price || pkg.price;
 
-  const swipeThreshold = 80; // px
+  // Ref for success message scrolling
+  const successRef = useRef(null);
+
+  // Scroll to success message when it appears
+  useEffect(() => {
+    if (window.bookingSuccessMessage && successRef.current) {
+      successRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [window.bookingSuccessMessage]);
 
   return (
     <section className="lg:hidden relative mb-16">
 
       {/* IMAGE STORY */}
       <motion.div
+        key={selectedDay}
         drag="x"
         dragConstraints={{ left: 0, right: 0 }}
-        dragElastic={0.3}
-        dragMomentum={false} // we'll handle momentum manually
-        onDrag={(e, info) => setDragX(info.offset.x)}
+        dragElastic={0.2}
         onDragEnd={(e, info) => {
-          if (info.offset.x < -swipeThreshold && selectedDay < totalDays - 1) {
-            setDirection(1); // swipe left → next
-            setDragX(0);
-            setTimeout(() => setSelectedDay(selectedDay + 1), 150);
-          } else if (info.offset.x > swipeThreshold && selectedDay > 0) {
-            setDirection(-1); // swipe right → previous
-            setDragX(0);
-            setTimeout(() => setSelectedDay(selectedDay - 1), 150);
-          } else {
-            setDragX(0); // snap back
+          if (info.offset.x < -80 && selectedDay < totalDays - 1) {
+            setSelectedDay(selectedDay + 1);
+            setShowDetails(false);
           }
-          setShowDetails(false);
+          if (info.offset.x > 80 && selectedDay > 0) {
+            setSelectedDay(selectedDay - 1);
+            setShowDetails(false);
+          }
         }}
-        animate={{ x: dragX }}
-        transition={{ type: "spring", stiffness: 300, damping: 30 }}
         className="h-[75vh] rounded-2xl overflow-hidden shadow-xl relative touch-pan-x"
       >
         <img
@@ -54,7 +54,9 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
           <p className="text-sm opacity-90">
             Day {selectedDay + 1} of {totalDays}
           </p>
-          <h2 className="text-2xl font-bold mt-1">{activeDay.title}</h2>
+          <h2 className="text-2xl font-bold mt-1">
+            {activeDay.title}
+          </h2>
         </div>
 
         {/* BOTTOM HINT */}
@@ -92,8 +94,15 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
             }}
           >
             <div className="w-12 h-1 bg-gray-300 rounded-full mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-[#105050] mb-3">{activeDay.title}</h3>
-            <p className="text-gray-700 leading-relaxed whitespace-pre-line">{activeDay.description}</p>
+
+            <h3 className="text-2xl font-bold text-[#105050] mb-3">
+              {activeDay.title}
+            </h3>
+
+            <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+              {activeDay.description}
+            </p>
+
             <button
               onClick={() => setShowDetails(false)}
               className="w-full mt-6 bg-gray-200 py-3 rounded-full font-semibold"
@@ -117,10 +126,12 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
       {/* PRICE + ENQUIRE BUTTON */}
       <div className="mt-4 mb-8 flex flex-col gap-3 px-4">
         <div className="text-center text-xl font-bold text-[#105050]">
-          ${priceToShow} / 2 person
+          ${activeDay.price ?? pkg.price} / 2 person
         </div>
+
         <button
           onClick={() => {
+            // open booking modal
             if (typeof window.setShowBookingModal === "function") {
               window.setShowBookingModal(true);
             }
@@ -129,6 +140,16 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
         >
           Enquire This Package
         </button>
+
+        {/* Success message for mobile */}
+        {window.bookingSuccessMessage && (
+          <div
+            ref={successRef}
+            className="mt-4 p-3 bg-green-100 text-green-800 rounded-lg text-center font-semibold"
+          >
+            {window.bookingSuccessMessage}
+          </div>
+        )}
       </div>
     </section>
   );
