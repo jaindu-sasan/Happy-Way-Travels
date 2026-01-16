@@ -39,7 +39,7 @@ export default function Contact() {
   
   {/* Hero Image (High Priority) */}
 <img
-  src="https://res.cloudinary.com/dx9lsxwg3/image/upload/f_auto,q_auto,w_1600,dpr_auto/v1768236509/contactushero_s3wm8j.jpg"
+  src="https://res.cloudinary.com/dx9lsxwg3/image/upload/f_auto,q_auto,w_1600/v1768236509/contactushero_s3wm8j.jpg"
   alt="Sri Lanka Tourism Contact"
   className="absolute inset-0 w-full h-full object-cover"
   fetchpriority="high"

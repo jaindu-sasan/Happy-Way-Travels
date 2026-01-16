@@ -13,7 +13,7 @@ const Blog = () => {
 
   {/* Hero Image — High Priority */}
 <img
-  src="https://res.cloudinary.com/dx9lsxwg3/image/upload/f_auto,q_auto,w_1600,dpr_auto/v1768236412/banner_sfcpts.webp"
+  src="https://res.cloudinary.com/dx9lsxwg3/image/upload/f_auto,q_auto,w_1600/v1768236412/banner_sfcpts.webp"
   alt="Travel Stories & Guides"
   className="absolute inset-0 w-full h-full object-cover"
   fetchpriority="high"
