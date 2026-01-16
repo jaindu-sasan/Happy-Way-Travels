@@ -122,7 +122,7 @@ ${selectedMatches.map((m) => `• ${m}`).join("\n")}
 
    {/* Background Image (Optimized for Speed) */}
       <img
-        src="https://res.cloudinary.com/dx9lsxwg3/image/upload/f_auto,q_auto,w_1600/v1768236186/sri-lanka-cricket_bupmz4.jpg"
+        src="https://res.cloudinary.com/dx9lsxwg3/image/upload/f_auto,q_auto,w_1600,dpr_auto/v1768236186/sri-lanka-cricket_bupmz4.jpg"
         alt="Sri Lanka Cricket Stadium"
         loading="eager"
         fetchpriority="high"

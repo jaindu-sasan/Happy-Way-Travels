@@ -9,7 +9,7 @@ export default function About() {
       {/* HERO — Same style as Packages */}
       <header className="relative w-full h-[70vh]">
 <img
-  src="https://res.cloudinary.com/dx9lsxwg3/image/upload/f_auto,q_auto,w_1600/v1768236497/banner_jun5h2.webp"
+  src="https://res.cloudinary.com/dx9lsxwg3/image/upload/f_auto,q_auto,,dpr_auto/v1768236497/banner_jun5h2.webp"
   alt="About ExploreLanka Travels"
   className="absolute inset-0 w-full h-full object-cover"
   fetchpriority="high"
