@@ -210,7 +210,7 @@ function goToDetails(pkgId) {
   if (!pkg) return;
 
   const slug = createSlug(pkg.name); // ← createSlug not defined here
-  navigate(`/packages/${createSlug(pkg.name)}`)
+  navigate(`/sri-lanka-tour-packages/${createSlug(pkg.name)}`)
 
 }
 

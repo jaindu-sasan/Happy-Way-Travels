@@ -110,7 +110,7 @@ export default function Navbar() {
         {/* Other menu items */}
         {[
           ["/", "Home"],
-          ["/destinations", "Packages"],
+          ["/sri-lanka-tour-packages", "Tour Packages"],
           ["/blog", "Blog"],
           ["/about", "About"],
           ["/contact", "Contact"],
@@ -175,7 +175,7 @@ export default function Navbar() {
 
           {[
             ["/", "Home"],
-            ["/destinations", "Packages"],
+            ["/sri-lanka-tour-packages", "Tour Packages"],
             ["/blog", "Blog"],
             ["/about", "About"],
             ["/contact", "Contact"],

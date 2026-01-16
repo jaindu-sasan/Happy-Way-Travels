@@ -82,7 +82,7 @@ export default function HomePage() {
     From misty mountains to golden beaches — uncover a land where nature and culture blend beautifully.
   </motion.p>
 
-  <Link to="/destinations">
+  <Link to="/sri-lanka-tour-packages">
     <motion.button
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -171,7 +171,7 @@ export default function HomePage() {
         <p className="text-sm text-[#334343] mt-1">Popular journeys curated for discerning travelers</p>
       </div>
       <div>
-        <Link to="/destinations" className="text-sm text-[#207070] font-semibold hover:underline">See all packages →</Link>
+        <Link to="/sri-lanka-tour-packages" className="text-sm text-[#207070] font-semibold hover:underline">See all packages →</Link>
       </div>
     </div>
 
@@ -196,7 +196,7 @@ export default function HomePage() {
                 <div className="text-xs text-[#556565]">Two Person </div>
               </div>
               <div>
-                <Link to={`/packages/${createSlug(p.name)}`} className="inline-block bg-[#105050] text-white px-4 py-2 rounded-full text-sm font-semibold  transition">
+                <Link to={`/sri-lanka-tour-packages/${createSlug(p.name)}`} className="inline-block bg-[#105050] text-white px-4 py-2 rounded-full text-sm font-semibold  transition">
                   View
                 </Link>
               </div>
@@ -230,7 +230,7 @@ export default function HomePage() {
   {slides.map((s, idx) => (
     <SwiperSlide key={idx}>
       <Link
-        to={`/destinations`}
+        to={`/sri-lanka-tour-packages`}
         className="block"
         onClick={(e) => e.stopPropagation()} // prevents swiper drag conflict
       >

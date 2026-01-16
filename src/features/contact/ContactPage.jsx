@@ -96,7 +96,7 @@ export default function Contact() {
             {[
               { icon: <MapPin />, title: "Office", value: "Colombo, Sri Lanka" },
               { icon: <Phone />, title: "Call", value: "+94 77 123 4567" },
-              { icon: <Mail />, title: "Email", value: "info@explorelanka.com" },
+              { icon: <Mail />, title: "Email", value: "happywaytravels@gmail.com" },
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -207,7 +207,7 @@ export default function Contact() {
                 </a>
 
                 <a
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=sasanzoysa@gmail.com"
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=happywaytravels@gmail.com"
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center gap-4 text-lg py-5 px-5 bg-white/15 hover:bg-white/25 transition rounded-xl"

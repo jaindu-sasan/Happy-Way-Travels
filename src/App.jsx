@@ -37,8 +37,8 @@ function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/contact" element={<ContactPage />} />
-              <Route path="/destinations" element={<DestinationPage />} />
-              <Route path="/packages/:slug" element={<PackageDetailPage />} />
+              <Route path="/sri-lanka-tour-packages" element={<DestinationPage />} />
+              <Route path="/sri-lanka-tour-packages/:slug" element={<PackageDetailPage />} />
               <Route path="/customize-trip" element={<CustomizeTripPage />} />
               <Route path="/about" element={<About />} />
               <Route path="/blog" element={<Blog />} />

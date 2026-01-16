@@ -142,7 +142,7 @@ export default function PackagePage({ params }) {
             .map((p) => (
               <Link
                 key={p.id}
-                href={`/packages/${createSlug(p.name)}`}
+                href={`/sri-lanka-tour-packages/${createSlug(p.name)}`}
                 className="border rounded-lg p-4 hover:shadow-lg transition"
               >
                 <Image

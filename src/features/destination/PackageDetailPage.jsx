@@ -48,7 +48,7 @@ function RecommendedPackages({ currentId }) {
             key={item.id}
             whileHover={{ scale: 1.03 }}
             className="bg-white shadow-lg rounded-2xl overflow-hidden cursor-pointer border border-gray-200"
-             onClick={() => navigate(`/packages/${createSlug(item.name)}`)}
+             onClick={() => navigate(`/sri-lanka-tour-packages/${createSlug(item.name)}`)}
 
           >
             <img
