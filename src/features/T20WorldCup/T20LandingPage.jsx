@@ -118,13 +118,16 @@ ${selectedMatches.map((m) => `• ${m}`).join("\n")}
   return (
     <div className="bg-gray-50 text-gray-800 font-sans">
      <section
-  className="relative min-h-[70vh] text-white"
-  style={{
-    backgroundImage: "url(https://res.cloudinary.com/dx9lsxwg3/image/upload/v1768236186/sri-lanka-cricket_bupmz4.jpg)",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  }}
->
+  className="relative min-h-[70vh] text-white bg-gray-900 overflow-hidden">
+
+   {/* Background Image (Optimized for Speed) */}
+      <img
+        src="https://res.cloudinary.com/dx9lsxwg3/image/upload/f_auto,q_auto,w_1600/v1768236186/sri-lanka-cricket_bupmz4.jpg"
+        alt="Sri Lanka Cricket Stadium"
+        loading="eager"
+        fetchpriority="high"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
   {/* Overlay */}
   <div className="absolute inset-0 bg-black/"></div>
 

@@ -38,15 +38,17 @@ export default function Contact() {
 <section className="relative min-h-[80vh] md:min-h-[70vh] flex items-center pt-20 md:pt-0 pb-20 overflow-hidden">
   
   {/* Hero Image (High Priority) */}
-  <img
-    src="https://res.cloudinary.com/dx9lsxwg3/image/upload/v1768236509/contactushero_s3wm8j.jpg"
-    alt="Sri Lanka Tourism Contact"
-    className="absolute inset-0 w-full h-full object-cover"
-    fetchpriority="high"
-    decoding="async"
-    width="1920"
-    height="1080"
-  />
+<img
+  src="https://res.cloudinary.com/dx9lsxwg3/image/upload/f_auto,q_auto,w_1600/v1768236509/contactushero_s3wm8j.jpg"
+  alt="Sri Lanka Tourism Contact"
+  className="absolute inset-0 w-full h-full object-cover"
+  fetchpriority="high"
+  decoding="async"
+  width="1600"
+  height="900"
+  sizes="100vw"
+/>
+
 
   {/* Overlay */}
   <div className="absolute inset-0 bg-gradient-to-r from-[#0f3f3f]/70 via-[#0f3f3f]/60 to-transparent" />
