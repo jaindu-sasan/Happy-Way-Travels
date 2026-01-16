@@ -60,8 +60,7 @@ export default function Footer() {
               Explore
             </h6>
             <ul className="mt-4 space-y-2 text-sm text-[#D9FFFF]">
-              <li><Link to="/destinations" className="hover:text-white">Destinations</Link></li>
-              <li><Link to="/packages" className="hover:text-white">Packages</Link></li>
+              <li><Link to="/sri-lanka-tour-packages" className="hover:text-white">Tour Packages</Link></li>
               <li><Link to="/blogs" className="hover:text-white">Travel Journal</Link></li>
               <li><Link to="/about" className="hover:text-white">About Us</Link></li>
             </ul>
@@ -79,7 +78,7 @@ export default function Footer() {
               </li>
               <li className="flex gap-3">
                 <Mail size={16} />
-                support@visitsrilanka.example
+                happywaytravels@gmail.com
               </li>
               <li className="flex gap-3">
                 <Phone size={16} />

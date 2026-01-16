@@ -28,7 +28,7 @@ export default function PackageContent({ packages, mode = "list", currentSlug })
               </p>
 
               <Link
-                to={`/packages/${createSlug(pkg.name)}`} // react-router-dom Link
+                to={`/sri-lanka-tour-packages/${createSlug(pkg.name)}`} // react-router-dom Link
                 className="inline-block bg-emerald-600 text-white px-4 py-2 rounded-full text-sm hover:bg-emerald-700"
               >
                 View Details →
@@ -70,7 +70,7 @@ export default function PackageContent({ packages, mode = "list", currentSlug })
               .map((p) => (
                 <Link
                   key={p.id}
-                  to={`/packages/${createSlug(p.name)}`}
+                  to={`/sri-lanka-tour-packages/${createSlug(p.name)}`}
                   className="border rounded-lg p-4 hover:shadow-lg"
                 >
                   <img
