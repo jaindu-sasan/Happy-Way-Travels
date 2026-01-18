@@ -38,15 +38,17 @@ export default function Contact() {
 <section className="relative min-h-[80vh] md:min-h-[70vh] flex items-center pt-20 md:pt-0 pb-20 overflow-hidden">
   
   {/* Hero Image (High Priority) */}
-  <img
-    src="https://res.cloudinary.com/dx9lsxwg3/image/upload/v1768236509/contactushero_s3wm8j.jpg"
-    alt="Sri Lanka Tourism Contact"
-    className="absolute inset-0 w-full h-full object-cover"
-    fetchpriority="high"
-    decoding="async"
-    width="1920"
-    height="1080"
-  />
+<img
+  src="https://res.cloudinary.com/dx9lsxwg3/image/upload/f_auto,q_auto,w_1600/v1768236509/contactushero_s3wm8j.jpg"
+  alt="Sri Lanka Tourism Contact"
+  className="absolute inset-0 w-full h-full object-cover"
+  fetchpriority="high"
+  decoding="async"
+  width="1600"
+  height="900"
+  sizes="100vw"
+/>
+
 
   {/* Overlay */}
   <div className="absolute inset-0 bg-gradient-to-r from-[#0f3f3f]/70 via-[#0f3f3f]/60 to-transparent" />
@@ -69,7 +71,7 @@ export default function Contact() {
 
       <div className="flex flex-col sm:flex-row gap-4 mt-6 md:mt-8">
         <a
-          href="https://wa.me/94771234567"
+          href="https://wa.me/94719201718"
           target="_blank"
           rel="noreferrer"
           className="inline-flex items-center justify-center gap-2 bg-green-500 text-white px-6 py-3 md:py-4 rounded-full font-semibold hover:scale-105 transition w-full sm:w-auto"
@@ -95,7 +97,7 @@ export default function Contact() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {[
               { icon: <MapPin />, title: "Office", value: "Colombo, Sri Lanka" },
-              { icon: <Phone />, title: "Call", value: "+94 77 123 4567" },
+              { icon: <Phone />, title: "Call", value: "+94 71 341 2345 " },
               { icon: <Mail />, title: "Email", value: "happywaytravels@gmail.com" },
             ].map((item, i) => (
               <motion.div
@@ -194,11 +196,11 @@ export default function Contact() {
 
               <div className="grid gap-4">
                 <a
-                  href="tel:+94771234567"
+                  href="tel:+94713412345"
                   onClick={(e) => {
                     if (window.innerWidth > 768) {
                       e.preventDefault();
-                      window.open("https://wa.me/94771234567", "_blank");
+                      window.open("https://wa.me/94719201718", "_blank");
                     }
                   }}
                   className="flex items-center gap-4 text-lg py-5 px-5 bg-white/15 hover:bg-white/25 transition rounded-xl"
@@ -216,7 +218,7 @@ export default function Contact() {
                 </a>
 
                 <a
-                  href="https://wa.me/94771234567"
+                  href="https://wa.me/94713412345"
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center gap-4 text-lg py-5 px-5 bg-white/15 hover:bg-white/25 transition rounded-xl"

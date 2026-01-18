@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useRef  } from "react";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
@@ -12,6 +12,8 @@ import { createSlug } from "../destination/components/PackageContent";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+
+
 
 export default function HomePage() {
   const slides = [
@@ -41,6 +43,16 @@ export default function HomePage() {
     { img: "/assets/homepage/plan_steps/plan-step3.jpg", title: "Relax, We’ll Handle the Details", desc: "From bookings to logistics, our experts ensure everything runs smoothly." },
   ];
 
+  const videoRef = useRef(null);
+
+const handleVideoEnded = () => {
+  if (videoRef.current) {
+    videoRef.current.currentTime = 0;
+    videoRef.current.play();
+  }
+};
+
+
   return (
     <div className="relative overflow-hidden bg-[#F0F0F0] text-[#010100]">
 
@@ -49,15 +61,22 @@ export default function HomePage() {
 <section className="relative h-[100vh] w-full overflow-hidden">
 
   {/* Background Video */}
-  <video
-    className="absolute inset-0 w-full h-full object-cover"
-    src="https://res.cloudinary.com/dx9lsxwg3/video/upload/v1768235986/1231_5_ugbh8z.mp4"
-    autoPlay
-    muted
-    loop
-    playsInline
-    preload="metadata"
+<video
+  ref={videoRef}
+  className="absolute inset-0 w-full h-full object-cover"
+  autoPlay
+  muted
+  playsInline
+  preload="none"
+  onEnded={handleVideoEnded}
+  poster="https://res.cloudinary.com/dx9lsxwg3/image/upload/f_auto,q_auto,w_1200/v1768574118/sigiriya_g4sfel.webp"
+>
+  <source
+    src="https://res.cloudinary.com/dx9lsxwg3/video/upload/f_auto,q_auto,w_1024,fl_splice/v1768235986/1231_5_ugbh8z.mp4"
+    type="video/mp4"
   />
+</video>
+
 
   {/* ❌ Removed the dark gradient overlay */}
 

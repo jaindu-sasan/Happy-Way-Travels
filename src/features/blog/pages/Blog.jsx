@@ -12,16 +12,16 @@ const Blog = () => {
      <section className="relative h-[70vh] flex flex-col items-center justify-center overflow-hidden">
 
   {/* Hero Image — High Priority */}
-  <img
-    src="https://res.cloudinary.com/dx9lsxwg3/image/upload/v1768236412/banner_sfcpts.webp"
-    alt="Travel Stories & Guides"
-    className="absolute inset-0 w-full h-full object-cover"
-    loading="lazy"
-    fetchpriority="high"
-    decoding="async"
-    width="1920"
-    height="1080"
-  />
+<img
+  src="https://res.cloudinary.com/dx9lsxwg3/image/upload/f_auto,q_auto,w_1600/v1768236412/banner_sfcpts.webp"
+  alt="Travel Stories & Guides"
+  className="absolute inset-0 w-full h-full object-cover"
+  fetchpriority="high"
+  decoding="async"
+  width="1600"
+  height="900"
+  sizes="100vw"
+/>
 
   {/* Dark elegant overlay */}
   <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/20"></div>

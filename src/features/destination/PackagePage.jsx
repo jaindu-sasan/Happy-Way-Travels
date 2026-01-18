@@ -221,14 +221,17 @@ function goToDetails(pkgId) {
 <header className="relative w-full min-h-[60vh] md:h-[70vh]">
   {/* Background Image */}
   <img
-    src="https://res.cloudinary.com/dx9lsxwg3/image/upload/v1768236258/banner_wbivd7.jpg"
-    alt="Sri Lanka Tourism"
-    fetchpriority="high"
-    className="absolute inset-0 w-full h-full object-cover"
-  />
+  src="https://res.cloudinary.com/dx9lsxwg3/image/upload/f_auto,q_auto,w_1600/v1768236258/banner_wbivd7.jpg"
+  alt="Sri Lanka Tourism"
+  fetchpriority="high"
+  decoding="async"
+  sizes="100vw"
+  className="absolute inset-0 w-full h-full object-cover"
+/>
+
 
   {/* Overlay */}
-  <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/20"></div>
+  <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/20"></div>
 
   {/* CONTENT */}
   <div

@@ -8,13 +8,17 @@ export default function About() {
 
       {/* HERO — Same style as Packages */}
       <header className="relative w-full h-[70vh]">
-        <img
-          src="https://res.cloudinary.com/dx9lsxwg3/image/upload/v1768236497/banner_jun5h2.webp"
-          alt="About ExploreLanka Travels"
-          className="absolute inset-0 w-full h-full object-cover"
-          fetchpriority="high"
-        
-        />
+<img
+  src="https://res.cloudinary.com/dx9lsxwg3/image/upload/f_auto,q_auto,w_1600/v1768236497/banner_jun5h2.webp"
+  alt="About ExploreLanka Travels"
+  className="absolute inset-0 w-full h-full object-cover"
+  fetchpriority="high"
+  decoding="async"
+  width="1600"
+  height="900"
+  sizes="100vw"
+/>
+
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/20 flex items-center">
           <div className="max-w-7xl mx-auto px-6 text-center">
             <motion.h1
