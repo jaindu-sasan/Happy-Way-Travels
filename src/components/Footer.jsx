@@ -82,7 +82,7 @@ export default function Footer() {
               </li>
               <li className="flex gap-3">
                 <Phone size={16} />
-                +94 77 123 4567
+                +94 71 341 2345
               </li>
             </ul>
           </div>
