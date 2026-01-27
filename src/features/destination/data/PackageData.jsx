@@ -92,7 +92,7 @@ export const packagesdata = [
   
     type: 'Cultural / UNESCO',
     duration: '1 Day',
-    price: 252,
+    price: 277,
     includes: ['Transport', 'Guide'],
     itinerary: [
       {
@@ -121,7 +121,7 @@ export const packagesdata = [
   
     type: 'Cultural / Coastal',
     duration: '1 Day',
-    price: 250,
+    price: 260,
     includes: ['Transport','Guide'],
     itinerary: [
       {
@@ -179,7 +179,7 @@ export const packagesdata = [
    
     type: 'Cultural / Heritage / Scenic',
     duration: '6 Days / 5 Nights',
-    price: 440,
+    price: 585,
     airport: { name: "Bandaranaike Intl Airport", lat: 7.1800, lng: 79.8840 },
     includes: [
      
@@ -268,7 +268,7 @@ export const packagesdata = [
    
     type: 'Nature / Wildlife / Cultural',
     duration: '7 Days / 6 Nights',
-    price: 745,
+    price: 755,
     airport: { name: "Bandaranaike Intl Airport", lat: 7.1800, lng: 79.8840 },
     includes: [
      
@@ -369,14 +369,14 @@ export const packagesdata = [
     
     type: 'Heritage / Adventure / Wildlife / Cultural',
     duration: '9 Days / 8 Nights',
-    price: 905,
+    price: 993,
     airport: { name: "Bandaranaike Intl Airport", lat: 7.1800, lng: 79.8840 },
     includes: [
       
       'Transport',
       'Guide',
-      
-      'City Tours',
+      'Yala Safari Jeep ',
+      'Maduriver Boat Safari',
    
     ],
     itinerary: [
@@ -494,7 +494,7 @@ export const packagesdata = [
  
     type: 'Cultural / Heritage / Scenic',
     duration: '5 Days / 4 Nights',
-    price: 428,
+    price: 455,
     airport: { name: "Bandaranaike Intl Airport", lat: 7.1800, lng: 79.8840 },
     includes: [
    

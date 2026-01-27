@@ -72,9 +72,7 @@ const handleVideoEnded = () => {
   poster="https://res.cloudinary.com/dx9lsxwg3/image/upload/f_auto,q_auto,w_1200/v1768574118/sigiriya_g4sfel.webp"
 >
   <source
-    src="https://res.cloudinary.com/dx9lsxwg3/video/upload/
-      f_auto,q_auto,vc_h264,br_1200k,w_1280
-      /v1769533394/1231_7_he3mtg.mp4"
+    src="https://res.cloudinary.com/dx9lsxwg3/video/upload/f_auto,q_auto,w_1024,fl_splice/v1768235986/1231_5_ugbh8z.mp4"
     type="video/mp4"
   />
 </video>
