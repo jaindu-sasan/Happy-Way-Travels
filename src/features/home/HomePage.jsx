@@ -7,6 +7,7 @@ import { Star, Users, Shield, Globe } from "lucide-react";
 import { packagesdata } from "../destination/data/PackageData"
 import { blogPosts } from "../blog/data/blogData";
 import { createSlug } from "../destination/components/PackageContent";
+import HeroSlideshow from "./components/HeroSlideshow";
 
 
 import "swiper/css";
@@ -58,62 +59,8 @@ const handleVideoEnded = () => {
 
     
 {/* ---------------- HERO SECTION WITH HIGH-QUALITY VIDEO (NO DARKNESS) ---------------- */}
-<section className="relative h-[100vh] w-full overflow-hidden">
+<HeroSlideshow />
 
-  {/* Background Video */}
-<video
-  ref={videoRef}
-  className="absolute inset-0 w-full h-full object-cover"
-  autoPlay
-  muted
-  playsInline
-  preload="none"
-  onEnded={handleVideoEnded}
-  poster="https://res.cloudinary.com/dx9lsxwg3/image/upload/f_auto,q_auto,w_1200/v1768574118/sigiriya_g4sfel.webp"
->
-  <source
-    src="https://res.cloudinary.com/dx9lsxwg3/video/upload/f_auto,q_auto,w_1024,fl_splice/v1768235986/1231_5_ugbh8z.mp4"
-    type="video/mp4"
-  />
-</video>
-
-
-  {/* ❌ Removed the dark gradient overlay */}
-
-  {/* Content */}
- <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-  <motion.h1
-    initial={{ opacity: 0, y: 40 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 1 }}
-    className="text-4xl md:text-6xl font-bold mb-6 text-[#E0FFFF] drop-shadow-[0_0_14px_rgba(0,120,120,0.7)]"
-
-  >
-    Explore Magical Sri Lanka
-  </motion.h1>
-
-  <motion.p
-    initial={{ opacity: 0, y: 40 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 1.2 }}
-    className="text-lg md:text-2xl text-white max-w-2xl leading-relaxed mb-8 drop-shadow-[0_0_8px_rgba(0,0,0,0.6)]"
-  >
-    From misty mountains to golden beaches — uncover a land where nature and culture blend beautifully.
-  </motion.p>
-
-  <Link to="/sri-lanka-tour-packages">
-    <motion.button
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.4 }}
-      className="bg-[#105050] text-white px-10 py-3 rounded-full text-lg font-semibold shadow-lg hover:bg-[#166666] hover:shadow-xl transition-all"
-    >
-      Explore Destinations
-    </motion.button>
-  </Link>
-</div>
-
-</section>
 
 {/* ---------------- T20 WORLD CUP FEATURE SECTION ---------------- */}
 <section className="py-16 bg-gradient-to-r from-[#0F3F3F] to-[#166666] text-white">
