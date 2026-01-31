@@ -65,7 +65,7 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
         initial={{ x: 0 }}
         animate={{ x: 0 }}
         transition={{ duration: 0.15, ease: "easeOut" }}
-        className="h-[75vh] rounded-2xl overflow-hidden shadow-xl relative touch-pan-x"
+        className="h-[60vh] rounded-2xl overflow-hidden shadow-xl relative touch-pan-x"
       >
         {/* IMAGE */}
         <img
@@ -133,6 +133,19 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
           <p>Tap or swipe to change days</p>
          
         </div>
+
+{/* CTA – OUTSIDE IMAGE */}
+<div className="lg:hidden flex justify-center py-4">
+  <button
+    onClick={() => setShowDetails(true)}
+    className="px-6 py-2 rounded-full text-sm font-medium
+               bg-[#105050] text-white shadow-md"
+  >
+    View Details ↓
+  </button>
+</div>
+
+
       </motion.div>
 
       {/* PROGRESS DOTS */}
@@ -178,6 +191,7 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
           </motion.div>
         )}
       </AnimatePresence>
+      
 
       {/* VIEW DETAILS */}
       {!showDetails && (

@@ -89,7 +89,10 @@ function ItineraryPreview({ pkg, activeDay, setActiveDay, selectedDay, setSelect
   selectedDay={selectedDay}
   setSelectedDay={setSelectedDay}
   setShowBookingModal={setShowBookingModal}
+
+  
 />
+
 
 
 
@@ -126,6 +129,7 @@ function ItineraryPreview({ pkg, activeDay, setActiveDay, selectedDay, setSelect
                 <h3 className="text-xl font-semibold text-[#105050] mb-1">{day.title}</h3>
                 <p className="text-gray-700 text-sm leading-relaxed whitespace-pre-line">{day.description}</p>
               </motion.div>
+              
             ))}
           </div>
         </div>
