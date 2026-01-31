@@ -12,7 +12,7 @@ export default function WhatsAppButton() {
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 0.5, type: "spring", stiffness: 120 }}
       className="
-        fixed bottom-10 right-4 z-50
+        fixed bottom-15 right-4 z-50
         bg-green-600 hover:bg-green-700
         text-white px-4 sm:px-6 py-3 rounded-full
         shadow-xl font-semibold text-sm sm:text-base
