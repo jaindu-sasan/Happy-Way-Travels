@@ -597,7 +597,7 @@ onSubmit={async (e) => {
 
       setTimeout(() => setSuccessMessage(""), 5000);
     } else {
-      alert("Failed to submit booking. Try again!");
+      alert("Failed to submit Enquire. Try again!");
     }
   } catch (err) {
     console.error(err);
@@ -746,29 +746,34 @@ onSubmit={async (e) => {
           type="submit"
           className="w-full bg-green-700 text-white py-3 rounded-full text-lg font-semibold hover:bg-green-800 transition"
         >
-          Submit Booking
+          Submit Enquire
         </button>
       </form>
     </div>
   </div>
   )}
 
-  {/* MOBILE STICKY BOOKING BAR */}
-<div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t shadow-lg px-4 py-3 flex justify-between items-center">
-  <div>
-    <p className="text-sm text-gray-500">Starting from</p>
-    <p className="text-lg font-bold text-[#105050]">
-      ${pkg.price} / 2 person
-    </p>
-  </div>
+{/* MOBILE STICKY BOOKING BAR */}
+<div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t shadow-lg px-4 py-1">
+  <div className="flex items-center justify-between gap-3 flex-wrap">
+    <div className="min-w-0">
+      <p className="text-sm text-gray-500">Starting from</p>
+<p className="text-xl font-bold text-[#105050]">
+  ${pkg.price} / 2 person
+</p>
 
-  <button
-    onClick={() => setShowBookingModal(true)}
-    className="bg-green-700 text-white px-6 py-2 rounded-full font-semibold"
-  >
-    Book Now
-  </button>
+    </div>
+
+<button
+  onClick={() => setShowBookingModal(true)}
+  className="bg-green-700 text-white w-full px-6 py-3.5 rounded-full font-semibold text-lg mt-2"
+>
+  Enquire Now
+</button>
+
+  </div>
 </div>
+
 
 
 
