@@ -80,6 +80,8 @@ function RecommendedPackages({ currentId }) {
 function ItineraryPreview({ pkg, activeDay, setActiveDay, selectedDay, setSelectedDay,setShowBookingModal }) {
   return (
     <>
+
+    
       {/* MOBILE */}
 {/* MOBILE STORY EXPERIENCE */}
 <MobileItineraryStory
@@ -128,6 +130,22 @@ function ItineraryPreview({ pkg, activeDay, setActiveDay, selectedDay, setSelect
           </div>
         </div>
       </section>
+      {/* MOBILE INCLUDES */}
+<div className="lg:hidden mt-10 bg-white rounded-2xl shadow-md p-6">
+  <h3 className="text-xl font-bold mb-4 text-[#105050]">
+    What's Included
+  </h3>
+
+  <ul className="space-y-2 text-gray-700">
+    {pkg.includes?.map((inc, i) => (
+      <li key={i} className="flex items-start gap-2">
+        <span className="text-green-600 font-bold">✓</span>
+        {inc}
+      </li>
+    ))}
+  </ul>
+</div>
+
     </>
   );
 }
@@ -387,8 +405,9 @@ useEffect(() => {
               setSelectedDay={setSelectedDay}
             />
           )}
-
-          {/* MAP */}
+        {/*
+          
+          
           <section className="pb-1 relative z-0">
             <div className="h-[450px] rounded-2xl overflow-hidden shadow-lg mb-4 relative z-0">
               <MapContainer
@@ -403,7 +422,7 @@ useEffect(() => {
                   attribution="&copy; MapTiler & OSM"
                 />
 
-                {/* ACTIVE DAY PATH */}
+        
                 <Polyline
                   positions={routeStops
                     .filter((s) => s.dayIndex >= 0 && s.dayIndex <= selectedDay)
@@ -412,7 +431,7 @@ useEffect(() => {
                   color="#1E90FF"
                 />
 
-                {/* FULL GRAY ROUTE */}
+            
                 <Polyline
                   positions={routeStops.map((s) => s.position)}
                   weight={2}
@@ -420,7 +439,6 @@ useEffect(() => {
                   dashArray="6"
                 />
 
-                {/* MARKERS */}
                 {routeStops.map((stop, idx) => {
                   const isSelectedDayStop = stop.dayIndex === selectedDay;
                   return (
@@ -470,11 +488,12 @@ useEffect(() => {
               `}</style>
             </div>
           </section>
+          */}
 
           {/* ⭐ YOU MIGHT ALSO LIKE ⭐ */}
           <RecommendedPackages currentId={pkg.id} />
         </div>
-
+      
         {/* SIDEBAR */}
         <div className="hidden lg:block w-[280px]">
           <div className="sticky top-24 self-start">
@@ -729,6 +748,24 @@ onSubmit={async (e) => {
     </div>
   </div>
   )}
+
+  {/* MOBILE STICKY BOOKING BAR */}
+<div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t shadow-lg px-4 py-3 flex justify-between items-center">
+  <div>
+    <p className="text-sm text-gray-500">Starting from</p>
+    <p className="text-lg font-bold text-[#105050]">
+      ${pkg.price} / 2 person
+    </p>
+  </div>
+
+  <button
+    onClick={() => setShowBookingModal(true)}
+    className="bg-green-700 text-white px-6 py-2 rounded-full font-semibold"
+  >
+    Book Now
+  </button>
+</div>
+
 
 
 

@@ -9,7 +9,7 @@ export const packagesdata = [
     type: 'Wildlife',
     duration: '1 Day',
     price: 188,
-    includes: ['Transport', 'Guide'],
+    includes: ['Transport in a Privet Vehical',"Highway Tools and Parking"],
     itinerary: [
       {
         title: "",
@@ -37,7 +37,7 @@ export const packagesdata = [
     type: 'Wildlife / Adventure',
     duration: '1 Day',
     price: 380,
-    includes: ['Transport', 'Guide'],
+    includes: ['Transport in a Privet Vehical','Highway Tools and Parking','Privet Safari Jeep Yala'],
     itinerary: [
       {
         title: "",
@@ -65,7 +65,7 @@ export const packagesdata = [
     type: 'Nature / UNESCO',
     duration: '1 Day',
     price: 217,
-    includes: ['Transport', 'Guide'],
+    includes: ['Transport in a Privet Vehical', 'Highway Tools and Parking'],
     itinerary: [
       {
         title: "",
@@ -93,7 +93,7 @@ export const packagesdata = [
     type: 'Cultural / UNESCO',
     duration: '1 Day',
     price: 277,
-    includes: ['Transport', 'Guide'],
+    includes: ['Transport in a Privet Vehical','Highway Tools and Parking'],
     itinerary: [
       {
         title: "",
@@ -122,7 +122,7 @@ export const packagesdata = [
     type: 'Cultural / Coastal',
     duration: '1 Day',
     price: 260,
-    includes: ['Transport','Guide'],
+    includes: ['Transport in a Privet Vehical','Balapitiya Boat Safari','Turtle Hachery Tickets'],
     itinerary: [
       {
         title: "",
@@ -151,7 +151,7 @@ export const packagesdata = [
     type: 'Cultural / Nature',
     duration: '1 Day',
     price: 215,
-    includes: ['Transport', 'Guide'],
+    includes: ['Transport in a Privet Vehical','Highway Tools and Parking'],
     itinerary: [
       {
         title: "",
@@ -182,10 +182,8 @@ export const packagesdata = [
     price: 585,
     airport: { name: "Bandaranaike Intl Airport", lat: 7.1800, lng: 79.8840 },
     includes: [
-     
-      'Transport',
-      'Guide',
-      'City Tours'
+      'Transport in a Privet Vehical',
+      "Highway Tools and Parking"
     ],
     itinerary: [
       {
@@ -271,11 +269,12 @@ export const packagesdata = [
     price: 755,
     airport: { name: "Bandaranaike Intl Airport", lat: 7.1800, lng: 79.8840 },
     includes: [
-     
-      'Transport',
-      'Guide',
+     'Transport in a Privet Vehical',
+      "Highway Tools and Parking",
+      'Udawalawa Safari Jeep',
+      'Madu river Boat Safari',
+      'Turtle Hatchery',
       
-      'City Tours',
       
     ],
     itinerary: [
@@ -372,11 +371,11 @@ export const packagesdata = [
     price: 993,
     airport: { name: "Bandaranaike Intl Airport", lat: 7.1800, lng: 79.8840 },
     includes: [
-      
-      'Transport',
-      'Guide',
-      'Yala Safari Jeep ',
-      'Maduriver Boat Safari',
+     'Transport in a Privet Vehical',
+      "Highway Tools and Parking",
+      'Yala Safari Jeep',
+      'Madu river Boat Safari',
+      'Turtle Hatchery',
    
     ],
     itinerary: [
@@ -497,11 +496,9 @@ export const packagesdata = [
     price: 455,
     airport: { name: "Bandaranaike Intl Airport", lat: 7.1800, lng: 79.8840 },
     includes: [
-   
-      'Transport',
-      'Guide',
-      
-      'City Tours'
+      'Transport in a Privet Vehical',
+      "Highway Tools and Parking",
+      'English Speaking Guide'
     ],
     itinerary: [
       {
