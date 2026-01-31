@@ -134,18 +134,6 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
          
         </div>
 
-{/* CTA – OUTSIDE IMAGE */}
-<div className="lg:hidden flex justify-center py-4">
-  <button
-    onClick={() => setShowDetails(true)}
-    className="px-6 py-2 rounded-full text-sm font-medium
-               bg-[#105050] text-white shadow-md"
-  >
-    View Details ↓
-  </button>
-</div>
-
-
       </motion.div>
 
       {/* PROGRESS DOTS */}
@@ -203,23 +191,7 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
         </button>
       )}
 
-      {/* PRICE + ENQUIRE */}
-      <div className="mt-4 mb-8 flex flex-col gap-3 px-4">
-        <div className="text-center text-xl font-bold text-[#105050]">
-          ${priceToShow} / 2 person
-        </div>
 
-        <button
-          onClick={() => {
-            if (typeof window.setShowBookingModal === "function") {
-              window.setShowBookingModal(true);
-            }
-          }}
-          className="w-full bg-green-700 text-white py-3 rounded-full font-semibold hover:bg-green-800 transition"
-        >
-          Enquire This Package
-        </button>
-      </div>
 
       {/* TAP FLASH ANIMATION */}
       <style jsx>{`
