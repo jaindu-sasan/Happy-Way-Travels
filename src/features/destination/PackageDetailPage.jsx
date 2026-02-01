@@ -753,26 +753,6 @@ onSubmit={async (e) => {
   </div>
   )}
 
-{/* MOBILE STICKY BOOKING BAR */}
-<div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t shadow-lg px-4 py-1">
-  <div className="flex items-center justify-between gap-3 flex-wrap">
-    <div className="min-w-0">
-      <p className="text-sm text-gray-500">Starting from</p>
-<p className="text-xl font-bold text-[#105050]">
-  ${pkg.price} / 2 person
-</p>
-
-    </div>
-
-<button
-  onClick={() => setShowBookingModal(true)}
-  className="bg-green-700 text-white w-full px-6 py-3.5 rounded-full font-semibold text-lg mt-2"
->
-  Enquire Now
-</button>
-
-  </div>
-</div>
 
 
 

@@ -262,7 +262,7 @@ export const packagesdata = [
     name: '7-Day Sri Lanka Nature & Wildlife Tour',
     position: [6.8651, 81.0460],
     description: 'Discover Sri Lanka in 7 days with hill country views, Ella hikes, wildlife safari, Mirissa beaches and historic Galle Fort.',
-    image: '/assets/package 8/scenic-ceylon.webp',
+    image: '/assets/package 8/scenic-ceylon.jpeg',
    
     type: 'Nature / Wildlife / Cultural',
     duration: '7 Days / 6 Nights',
