@@ -169,6 +169,80 @@ export const packagesdata = [
       { name: "Peradeniya Botanical Garden", position: [7.2673, 80.5970] }
     ]
   },
+   {
+    id: 10,
+    name: '5-Day Sri Lanka Cultural Tour – Kandy, Tea Plantations & Colombo',
+    position: [7.2906, 80.6337],
+    description: 'Enjoy a 5-day Sri Lanka cultural tour with Kandy, Pinnawala elephants, tea plantations, botanical gardens and Colombo city tour.',
+    image: '/assets/package 10/serene-sri-lanka.webp',
+ 
+    type: 'Cultural / Heritage / Scenic',
+    duration: '5 Days / 4 Nights',
+    price: 455,
+    airport: { name: "Bandaranaike Intl Airport", lat: 7.1800, lng: 79.8840 },
+    includes: [
+      'Transport in a Privet Vehical',
+      "Highway Tools and Parking",
+      'English Speaking Guide'
+    ],
+    itinerary: [
+      {
+        title: "Day 1 – Arrival & Relaxing Stay in Negombo",
+        description: "Transfer to Negombo and relax after the flight.",
+        image: "/assets/package 10/day1.webp",
+        locations: [
+          { name: "Bandaranaike Intl Airport (transfer)", lat: 7.1800, lng: 79.8840 },
+          { name: "Negombo Beach / Lagoon", lat: 7.2000, lng: 79.8333 }
+        ]
+      },
+      {
+        title: "Day 2 – Pinnawala Elephants & Sacred Temple of the Tooth (Kandy)",
+        description: "Visit Pinnawala and explore Kandy including Temple of the Tooth.",
+        image: "/assets/package 10/day2.webp",
+        locations: [
+          { name: "Pinnawala Elephant Orphanage", lat: 7.3009, lng: 80.3847 },
+          { name: "Kandy Temple of the Tooth", lat: 7.2936, lng: 80.6414 }
+        ]
+      },
+      {
+        title: "Day 3 – Peradeniya Botanical  Gardens, Kandy City Tour & Cultural Show",
+        description: "Explore botanical gardens, local shopping, and enjoy a cultural dance show.",
+        image: "/assets/package 10/day3.webp",
+        locations: [
+          { name: "Peradeniya Botanical Garden", lat: 7.2673, lng: 80.5970 },
+          { name: "Kandy Cultural Show / Venue", lat: 7.2910, lng: 80.6360 }
+        ]
+      },
+      {
+        title: "Day 4 – Tea Factory Visit & Colombo City Exploration",
+        description: "Visit a tea factory and experience a guided city tour of Colombo.",
+        image: "/assets/package 10/day4.webp",
+        locations: [
+          { name: "Nuwara Eliya / Tea Factory Visit (approx)", lat: 6.9497, lng: 80.7895 },
+          { name: "Colombo City (Galle Face / Gangaramaya)", lat: 6.9271, lng: 79.8612 }
+        ]
+      },
+      {
+        title: "Day 5 – Transfer to Airport for Departure",
+        description: "Transfer to the airport for departure.",
+        image: "/assets/package 10/day5.webp",
+        locations: [
+          { name: "Colombo City / Final Transfer", lat: 6.9271, lng: 79.8612 },
+          { name: "Bandaranaike Intl Airport (transfer)", lat: 7.1800, lng: 79.8840 }
+        ]
+      }
+    ],
+    stops: [
+      { name: "Bandaranaike Intl Airport", position: [7.1800, 79.8840] },
+      { name: "Negombo", position: [7.2000, 79.8333] },
+      { name: "Pinnawala Elephant Orphanage", position: [7.3009, 80.3847] },
+      { name: "Kandy Temple of the Tooth", position: [7.2906, 80.6337] },
+      { name: "Peradeniya Botanical Garden", position: [7.2673, 80.5970] },
+      { name: "Colombo City", position: [6.9271, 79.8612] }
+    ]
+  },
+
+
 
   {
     id: 7,
@@ -484,76 +558,5 @@ export const packagesdata = [
     ]
   },
 
-  {
-    id: 10,
-    name: '5-Day Sri Lanka Cultural Tour – Kandy, Tea Plantations & Colombo',
-    position: [7.2906, 80.6337],
-    description: 'Enjoy a 5-day Sri Lanka cultural tour with Kandy, Pinnawala elephants, tea plantations, botanical gardens and Colombo city tour.',
-    image: '/assets/package 10/serene-sri-lanka.webp',
  
-    type: 'Cultural / Heritage / Scenic',
-    duration: '5 Days / 4 Nights',
-    price: 455,
-    airport: { name: "Bandaranaike Intl Airport", lat: 7.1800, lng: 79.8840 },
-    includes: [
-      'Transport in a Privet Vehical',
-      "Highway Tools and Parking",
-      'English Speaking Guide'
-    ],
-    itinerary: [
-      {
-        title: "Day 1 – Arrival & Relaxing Stay in Negombo",
-        description: "Transfer to Negombo and relax after the flight.",
-        image: "/assets/package 10/day1.webp",
-        locations: [
-          { name: "Bandaranaike Intl Airport (transfer)", lat: 7.1800, lng: 79.8840 },
-          { name: "Negombo Beach / Lagoon", lat: 7.2000, lng: 79.8333 }
-        ]
-      },
-      {
-        title: "Day 2 – Pinnawala Elephants & Sacred Temple of the Tooth (Kandy)",
-        description: "Visit Pinnawala and explore Kandy including Temple of the Tooth.",
-        image: "/assets/package 10/day2.webp",
-        locations: [
-          { name: "Pinnawala Elephant Orphanage", lat: 7.3009, lng: 80.3847 },
-          { name: "Kandy Temple of the Tooth", lat: 7.2936, lng: 80.6414 }
-        ]
-      },
-      {
-        title: "Day 3 – Peradeniya Gardens, Kandy City Tour & Cultural Show",
-        description: "Explore botanical gardens, local shopping, and enjoy a cultural dance show.",
-        image: "/assets/package 10/day3.webp",
-        locations: [
-          { name: "Peradeniya Botanical Garden", lat: 7.2673, lng: 80.5970 },
-          { name: "Kandy Cultural Show / Venue", lat: 7.2910, lng: 80.6360 }
-        ]
-      },
-      {
-        title: "Day 4 – Tea Factory Visit & Colombo City Exploration",
-        description: "Visit a tea factory and experience a guided city tour of Colombo.",
-        image: "/assets/package 10/day4.webp",
-        locations: [
-          { name: "Nuwara Eliya / Tea Factory Visit (approx)", lat: 6.9497, lng: 80.7895 },
-          { name: "Colombo City (Galle Face / Gangaramaya)", lat: 6.9271, lng: 79.8612 }
-        ]
-      },
-      {
-        title: "Day 5 – Transfer to Airport for Departure",
-        description: "Transfer to the airport for departure.",
-        image: "/assets/package 10/day5.webp",
-        locations: [
-          { name: "Colombo City / Final Transfer", lat: 6.9271, lng: 79.8612 },
-          { name: "Bandaranaike Intl Airport (transfer)", lat: 7.1800, lng: 79.8840 }
-        ]
-      }
-    ],
-    stops: [
-      { name: "Bandaranaike Intl Airport", position: [7.1800, 79.8840] },
-      { name: "Negombo", position: [7.2000, 79.8333] },
-      { name: "Pinnawala Elephant Orphanage", position: [7.3009, 80.3847] },
-      { name: "Kandy Temple of the Tooth", position: [7.2906, 80.6337] },
-      { name: "Peradeniya Botanical Garden", position: [7.2673, 80.5970] },
-      { name: "Colombo City", position: [6.9271, 79.8612] }
-    ]
-  }
 ];

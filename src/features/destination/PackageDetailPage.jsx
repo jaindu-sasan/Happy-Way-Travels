@@ -584,7 +584,7 @@ onSubmit={async (e) => {
   }
 
   try {
-    const response = await fetch("https://formspree.io/f/mnnelljk", {
+    const response = await fetch("https://formspree.io/f/meezepnn", {
       method: "POST",
       headers: { Accept: "application/json" },
       body: data,
