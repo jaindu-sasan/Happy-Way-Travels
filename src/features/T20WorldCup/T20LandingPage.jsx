@@ -104,7 +104,7 @@ ${selectedMatches.map((m) => `• ${m}`).join("\n")}
 `;
 
       setTimeout(() => {
-        window.location.href = `https://api.whatsapp.com/send?phone=94719201718&text=${encodeURIComponent(
+        window.location.href = `https://api.whatsapp.com/send?phone=94710455391&text=${encodeURIComponent(
           message
         )}`;
       }, 2000);
@@ -153,7 +153,7 @@ ${selectedMatches.map((m) => `• ${m}`).join("\n")}
                 Plan My Cricket Trip
               </a>
 <a
-  href="https://api.whatsapp.com/send?phone=94719201718"
+  href="https://api.whatsapp.com/send?phone=94710455391"
   target="_blank"
   rel="noopener noreferrer"
   className="border border-white px-6 py-4 rounded-xl text-center hover:bg-white hover:text-green-900"
@@ -273,7 +273,7 @@ ${selectedMatches.map((m) => `• ${m}`).join("\n")}
               <div>
                 <input
                   name="whatsapp"
-                  placeholder="WhatsApp Number (e.g. +94771234567)"
+                  placeholder="WhatsApp Number (e.g. +94710455391)"
                   className={`w-full p-4 border rounded-xl focus:ring-2 ${
                     errors.whatsapp
                       ? "border-red-500 focus:ring-red-400"

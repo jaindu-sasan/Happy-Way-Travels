@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Globe, Users, Compass } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function About() {
   return (
@@ -122,9 +123,12 @@ export default function About() {
           </p>
 
           <div className="flex justify-center gap-4">
-            <button className="bg-white text-emerald-700 px-8 py-4 rounded-full font-medium hover:opacity-95 transition shadow">
-              Start Your Journey
-            </button>
+           <Link
+  to="/contact"
+  className="inline-block bg-white text-emerald-700 px-8 py-4 rounded-full font-medium hover:opacity-95 transition shadow"
+>
+  Start Your Journey
+</Link>
           </div>
         </div>
       </section>

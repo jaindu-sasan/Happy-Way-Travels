@@ -80,6 +80,8 @@ function RecommendedPackages({ currentId }) {
 function ItineraryPreview({ pkg, activeDay, setActiveDay, selectedDay, setSelectedDay,setShowBookingModal }) {
   return (
     <>
+
+    
       {/* MOBILE */}
 {/* MOBILE STORY EXPERIENCE */}
 <MobileItineraryStory
@@ -87,7 +89,10 @@ function ItineraryPreview({ pkg, activeDay, setActiveDay, selectedDay, setSelect
   selectedDay={selectedDay}
   setSelectedDay={setSelectedDay}
   setShowBookingModal={setShowBookingModal}
+
+  
 />
+
 
 
 
@@ -124,10 +129,27 @@ function ItineraryPreview({ pkg, activeDay, setActiveDay, selectedDay, setSelect
                 <h3 className="text-xl font-semibold text-[#105050] mb-1">{day.title}</h3>
                 <p className="text-gray-700 text-sm leading-relaxed whitespace-pre-line">{day.description}</p>
               </motion.div>
+              
             ))}
           </div>
         </div>
       </section>
+      {/* MOBILE INCLUDES */}
+<div className="lg:hidden mt-10 bg-white rounded-2xl shadow-md p-6">
+  <h3 className="text-xl font-bold mb-4 text-[#105050]">
+    What's Included
+  </h3>
+
+  <ul className="space-y-2 text-gray-700">
+    {pkg.includes?.map((inc, i) => (
+      <li key={i} className="flex items-start gap-2">
+        <span className="text-green-600 font-bold">✓</span>
+        {inc}
+      </li>
+    ))}
+  </ul>
+</div>
+
     </>
   );
 }
@@ -387,8 +409,9 @@ useEffect(() => {
               setSelectedDay={setSelectedDay}
             />
           )}
-
-          {/* MAP */}
+        {/*
+          
+          
           <section className="pb-1 relative z-0">
             <div className="h-[450px] rounded-2xl overflow-hidden shadow-lg mb-4 relative z-0">
               <MapContainer
@@ -403,7 +426,7 @@ useEffect(() => {
                   attribution="&copy; MapTiler & OSM"
                 />
 
-                {/* ACTIVE DAY PATH */}
+        
                 <Polyline
                   positions={routeStops
                     .filter((s) => s.dayIndex >= 0 && s.dayIndex <= selectedDay)
@@ -412,7 +435,7 @@ useEffect(() => {
                   color="#1E90FF"
                 />
 
-                {/* FULL GRAY ROUTE */}
+            
                 <Polyline
                   positions={routeStops.map((s) => s.position)}
                   weight={2}
@@ -420,7 +443,6 @@ useEffect(() => {
                   dashArray="6"
                 />
 
-                {/* MARKERS */}
                 {routeStops.map((stop, idx) => {
                   const isSelectedDayStop = stop.dayIndex === selectedDay;
                   return (
@@ -470,11 +492,12 @@ useEffect(() => {
               `}</style>
             </div>
           </section>
+          */}
 
           {/* ⭐ YOU MIGHT ALSO LIKE ⭐ */}
           <RecommendedPackages currentId={pkg.id} />
         </div>
-
+      
         {/* SIDEBAR */}
         <div className="hidden lg:block w-[280px]">
           <div className="sticky top-24 self-start">
@@ -574,7 +597,7 @@ onSubmit={async (e) => {
 
       setTimeout(() => setSuccessMessage(""), 5000);
     } else {
-      alert("Failed to submit booking. Try again!");
+      alert("Failed to submit Enquire. Try again!");
     }
   } catch (err) {
     console.error(err);
@@ -723,12 +746,15 @@ onSubmit={async (e) => {
           type="submit"
           className="w-full bg-green-700 text-white py-3 rounded-full text-lg font-semibold hover:bg-green-800 transition"
         >
-          Submit Booking
+          Submit Enquire
         </button>
       </form>
     </div>
   </div>
   )}
+
+
+
 
 
 

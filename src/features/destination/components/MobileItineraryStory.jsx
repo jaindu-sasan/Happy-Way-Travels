@@ -65,7 +65,7 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
         initial={{ x: 0 }}
         animate={{ x: 0 }}
         transition={{ duration: 0.15, ease: "easeOut" }}
-        className="h-[75vh] rounded-2xl overflow-hidden shadow-xl relative touch-pan-x"
+        className="h-[60vh] rounded-2xl overflow-hidden shadow-xl relative touch-pan-x"
       >
         {/* IMAGE */}
         <img
@@ -133,6 +133,7 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
           <p>Tap or swipe to change days</p>
          
         </div>
+
       </motion.div>
 
       {/* PROGRESS DOTS */}
@@ -178,6 +179,7 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
           </motion.div>
         )}
       </AnimatePresence>
+      
 
       {/* VIEW DETAILS */}
       {!showDetails && (
@@ -189,23 +191,22 @@ export default function MobileItineraryStory({ pkg, selectedDay, setSelectedDay 
         </button>
       )}
 
-      {/* PRICE + ENQUIRE */}
-      <div className="mt-4 mb-8 flex flex-col gap-3 px-4">
+      <div className="lg:hidden mt-4 mb-8 flex flex-col gap-3 px-4">
         <div className="text-center text-xl font-bold text-[#105050]">
-          ${priceToShow} / 2 person
+          ${pkg.price} / 2 person
         </div>
 
         <button
-          onClick={() => {
-            if (typeof window.setShowBookingModal === "function") {
-              window.setShowBookingModal(true);
-            }
-          }}
+          onClick={() => setShowBookingModal(true)}
           className="w-full bg-green-700 text-white py-3 rounded-full font-semibold hover:bg-green-800 transition"
         >
           Enquire This Package
         </button>
-      </div>
+        </div>
+
+   
+
+
 
       {/* TAP FLASH ANIMATION */}
       <style jsx>{`
