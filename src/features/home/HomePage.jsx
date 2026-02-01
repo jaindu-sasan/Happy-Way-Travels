@@ -96,7 +96,7 @@ const handleVideoEnded = () => {
         </Link>
 
         <a
-          href="https://wa.me/94XXXXXXXXX"
+          href="https://wa.me/94710455391"
           className="border border-white px-6 py-3 rounded-xl font-semibold hover:bg-white hover:text-[#0F3F3F] transition"
         >
           WhatsApp Us

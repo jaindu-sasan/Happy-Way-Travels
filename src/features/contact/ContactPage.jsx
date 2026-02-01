@@ -71,7 +71,7 @@ export default function Contact() {
 
       <div className="flex flex-col sm:flex-row gap-4 mt-6 md:mt-8">
         <a
-          href="https://wa.me/94719201718"
+          href="https://wa.me/94710455391"
           target="_blank"
           rel="noreferrer"
           className="inline-flex items-center justify-center gap-2 bg-green-500 text-white px-6 py-3 md:py-4 rounded-full font-semibold hover:scale-105 transition w-full sm:w-auto"
@@ -97,7 +97,7 @@ export default function Contact() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {[
               { icon: <MapPin />, title: "Office", value: "Colombo, Sri Lanka" },
-              { icon: <Phone />, title: "Call", value: "+94 71 341 2345 " },
+              { icon: <Phone />, title: "Call", value: "+94 71 045 5391 " },
               { icon: <Mail />, title: "Email", value: "happywaytravels@gmail.com" },
             ].map((item, i) => (
               <motion.div
@@ -200,7 +200,7 @@ export default function Contact() {
                   onClick={(e) => {
                     if (window.innerWidth > 768) {
                       e.preventDefault();
-                      window.open("https://wa.me/94719201718", "_blank");
+                      window.open("https://wa.me/94710455391", "_blank");
                     }
                   }}
                   className="flex items-center gap-4 text-lg py-5 px-5 bg-white/15 hover:bg-white/25 transition rounded-xl"
@@ -218,7 +218,7 @@ export default function Contact() {
                 </a>
 
                 <a
-                  href="https://wa.me/94713412345"
+                  href="https://wa.me/94710455391"
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center gap-4 text-lg py-5 px-5 bg-white/15 hover:bg-white/25 transition rounded-xl"
