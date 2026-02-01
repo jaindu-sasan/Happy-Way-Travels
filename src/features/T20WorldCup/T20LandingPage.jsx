@@ -86,7 +86,7 @@ export default function T20LandingPage() {
     formData.append("selected_matches", selectedMatches.join(", "));
 
     try {
-      await fetch("https://formspree.io/f/xzdzwabp", {
+      await fetch("https://formspree.io/f/mnjzjlkr", {
         method: "POST",
         body: formData,
         headers: { Accept: "application/json" },

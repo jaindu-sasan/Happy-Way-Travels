@@ -15,7 +15,7 @@ import { useForm } from "@formspree/react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Footer() {
-  const [state, handleSubmit, reset] = useForm("mpqaenlq");
+  const [state, handleSubmit, reset] = useForm("xbdkdegr");
 
   useEffect(() => {
     if (state.succeeded) {
@@ -85,7 +85,7 @@ export default function Footer() {
               </li>
               <li className="flex gap-3">
                 <Phone size={16} />
-                +94 71 341 2345
+                +94 71 045 5391 
               </li>
             </ul>
           </div>
