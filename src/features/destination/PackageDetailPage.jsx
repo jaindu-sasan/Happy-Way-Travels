@@ -353,9 +353,7 @@ useEffect(() => {
       <div className="bg-white/20 px-3 py-1.5 rounded-md">
         Duration: {pkg.duration}
       </div>
-      <div className="bg-white/20 px-3 py-1.5 rounded-md">
-        Stops: {routeStops.length}
-      </div>
+     
     </div>
 
     <button
