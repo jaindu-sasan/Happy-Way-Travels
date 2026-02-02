@@ -98,7 +98,7 @@ export const packagesdata = [
       {
         title: "",
         description: "Discover Sri Lanka’s ancient heritage with a day tour to Sigiriya Lion Rock Fortress and the Dambulla Golden Cave Temple. Climb to the summit of Sigiriya for breathtaking panoramic views, then explore beautifully preserved cave temples filled with Buddhist murals and statues. This tour combines history, culture, and adventure in one unforgettable journey.",
-        image: '/assets/package 4/pak4.webp',
+        image: '/assets/package 4/pak4new.webp',
         locations: [
           { name: "Dambulla Golden Temple (Rangiri Dambulla)", lat: 7.8567, lng: 80.6490 },
           { name: "Sigiriya Rock Fortress", lat: 7.9570, lng: 80.7603 },
@@ -171,7 +171,7 @@ export const packagesdata = [
   },
    {
     id: 10,
-    name: '5-Day Sri Lanka Cultural Tour – Kandy, Tea Plantations & Colombo',
+    name: '5-Days Sri Lanka Cultural Tour – Kandy, Tea Plantations & Colombo',
     position: [7.2906, 80.6337],
     description: 'Enjoy a 5-day Sri Lanka cultural tour with Kandy, Pinnawala elephants, tea plantations, botanical gardens and Colombo city tour.',
     image: '/assets/package 10/serene-sri-lanka.webp',
@@ -205,7 +205,7 @@ export const packagesdata = [
         ]
       },
       {
-        title: "Day 3 – Peradeniya Botanical  Gardens, Kandy City Tour & Cultural Show",
+        title: "Day 3 – Peradeniya Botanical  Gardens, Kandy City Tour & Traditional Cultural Show",
         description: "Explore botanical gardens, local shopping, and enjoy a cultural dance show.",
         image: "/assets/package 10/day3.webp",
         locations: [
@@ -270,7 +270,7 @@ export const packagesdata = [
         ]
       },
       {
-        title: "Day 2 – Pinnawala Elephants & Golden Temple at Dambulla",
+        title: "Day 2 – Pinnawala Elephants Orphanage & Golden Temple at Dambulla",
         description: "Visit Pinnawala Elephant Orphanage to see elephants up close, followed by a visit to the Dambulla Golden Cave Temple. Overnight stay in Sigiriya or Habarana.",
         image: "/assets/package 7/day 2.webp",
         locations: [
@@ -299,7 +299,7 @@ export const packagesdata = [
         ]
       },
       {
-        title: "Day 5 – Peradeniya Gardens, Tea Factory & Colombo City Tour",
+        title: "Day 5 – Peradeniya Botanical Gardens, Tea Factory & Colombo City Tour",
         description: "Visit Peradeniya Botanical Garden, explore a tea factory, and enjoy a Colombo city tour before returning to Negombo.",
         image: "/assets/package 7/day 5.webp",
         locations: [
@@ -333,7 +333,7 @@ export const packagesdata = [
 
   {
     id: 8,
-    name: '7-Day Sri Lanka Nature & Wildlife Tour',
+    name: '7-Days Sri Lanka Nature & Wildlife Tour',
     position: [6.8651, 81.0460],
     description: 'Discover Sri Lanka in 7 days with hill country views, Ella hikes, wildlife safari, Mirissa beaches and historic Galle Fort.',
     image: '/assets/package 8/scenic-ceylon.jpeg',
@@ -489,7 +489,7 @@ export const packagesdata = [
         ]
       },
       {
-        title: "Day 5 – Hill Country: Peradeniya, Tea Plantations & Nuwara Eliya to Ella",
+        title: "Day 5 – Hill Country: Peradeniya Botanical Garden, Tea Plantations & Nuwara Eliya to Ella",
         description: "Enjoy stunning hill country, tea estates, waterfalls, and scenic stops.",
         image: "/assets/package 9/day 5.webp",
         locations: [
@@ -519,7 +519,7 @@ export const packagesdata = [
         ]
       },
       {
-        title: "Day 8 – Madu River Safari, Turtle Conservation & Colombo Stay",
+        title: "Day 8 – Madu River Safari, Turtle Conservation Center & Colombo Stay",
         description: "Boat safari, turtle hatchery visit, and Colombo city tour.",
         image: "/assets/package 9/day 8.webp",
         locations: [
