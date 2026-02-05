@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Calendar, MapPin, Phone, CheckCircle } from "lucide-react";
 import { useState } from "react";
+import Canonical from "../../components/Canonical"
 
 const MATCHES = [
   "07 Feb 2026 – Pakistan vs Netherlands – Colombo",
@@ -117,6 +118,7 @@ ${selectedMatches.map((m) => `• ${m}`).join("\n")}
 
   return (
     <div className="bg-gray-50 text-gray-800 font-sans">
+      <Canonical />
      <section
   className="relative min-h-[70vh] text-white bg-gray-900 overflow-hidden">
 

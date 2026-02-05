@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { useState, useRef, useEffect, useMemo } from 'react';
 import { createSlug } from "./components/PackageContent";
 import MobileItineraryStory from "./components/MobileItineraryStory";
+import Canonical from "../../components/Canonical"
 
 // Fix marker icon
 delete L.Icon.Default.prototype._getIconUrl;
@@ -159,6 +160,7 @@ function ItineraryPreview({ pkg, activeDay, setActiveDay, selectedDay, setSelect
 // -----------------------------
 export default function PackageDetail() {
   const { slug  } = useParams();
+  const canonicalPath = `/sri-lanka-tour-packages/${slug}`; // ✅ add this
   const pkg = packagesdata.find(
   (p) => createSlug(p.name) === slug
 );
@@ -310,6 +312,7 @@ useEffect(() => {
 
   return (
     <div className="font-poppins text-gray-900">
+    <Canonical path={canonicalPath} /> {/* ✅ add this */}
       {/* HERO */}
    <section
   className="relative bg-cover bg-center"

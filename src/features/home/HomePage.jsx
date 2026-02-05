@@ -8,6 +8,7 @@ import { packagesdata } from "../destination/data/PackageData"
 import { blogPosts } from "../blog/data/blogData";
 import { createSlug } from "../destination/components/PackageContent";
 import HeroSlideshow from "./components/HeroSlideshow";
+import Canonical from "../../components/Canonical"
 
 
 import "swiper/css";
@@ -56,6 +57,8 @@ const handleVideoEnded = () => {
 
   return (
     <div className="relative overflow-hidden bg-[#F0F0F0] text-[#010100]">
+
+       <Canonical path="/" />
 
     
 {/* ---------------- HERO SECTION WITH HIGH-QUALITY VIDEO (NO DARKNESS) ---------------- */}

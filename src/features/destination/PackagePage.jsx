@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { packagesdata } from './data/PackageData'; 
 import PackageContent, { createSlug } from "./components/PackageContent";
+import Canonical from "../../components/Canonical"
 
 import {
   MapPin,
@@ -217,6 +218,7 @@ function goToDetails(pkgId) {
 
   return (
     <div className="min-h-screen bg-slate-50">
+       <Canonical />
       {/* HERO */}
 <header className="relative w-full min-h-[60vh] md:h-[70vh]">
   {/* Background Image */}

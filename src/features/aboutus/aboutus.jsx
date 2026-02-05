@@ -2,10 +2,12 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Globe, Users, Compass } from "lucide-react";
 import { Link } from "react-router-dom";
+import Canonical from "../../components/Canonical"
 
 export default function About() {
   return (
     <div className="min-h-screen bg-slate-50 font-poppins text-slate-700">
+      <Canonical />
 
       {/* HERO — Same style as Packages */}
       <header className="relative w-full h-[70vh]">
