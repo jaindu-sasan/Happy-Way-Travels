@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, MessageCircle,CheckCircle } from "lucide-react";
 import { useState, useEffect } from "react";
+import Canonical from "../../components/Canonical"
 
 export default function Contact() {
 
@@ -34,6 +35,7 @@ export default function Contact() {
 
   return (
     <div className="font-poppins text-gray-800">
+       <Canonical />
  {/* HERO — Performance Optimized */}
 <section className="relative min-h-[80vh] md:min-h-[70vh] flex items-center pt-20 md:pt-0 pb-20 overflow-hidden">
   

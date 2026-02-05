@@ -2,11 +2,13 @@ import React from "react";
 import { motion } from "framer-motion";
 import { blogPosts } from "../data/blogData";
 import BlogCard from "../components/BlogCard";
+import Canonical from "../../../components/Canonical"
 
 
 const Blog = () => {
   return (
     <div className="font-poppins text-gray-800">
+      <Canonical />
       
       {/* 🌅 HERO SECTION — Modern + Interactive CTA */}
      <section className="relative h-[70vh] flex flex-col items-center justify-center overflow-hidden">

@@ -2,9 +2,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useParams, Link } from "react-router-dom";
 import { blogPosts } from "../data/blogData";
+import Canonical from "../../../components/Canonical"
 
 const BlogPost = () => {
   const { id } = useParams();
+  const canonicalPath = `/blog/${id}`; // ✅ unique canonical for each post
   const post = blogPosts.find((p) => p.id === parseInt(id));
 
   if (!post) {
@@ -23,6 +25,7 @@ const BlogPost = () => {
 
   return (
     <div className="font-poppins text-[var(--color-darkGray)]">
+       <Canonical path={canonicalPath} /> {/* ✅ add this */}
 
       {/* ================= PARALLAX HERO ================= */}
       <div
