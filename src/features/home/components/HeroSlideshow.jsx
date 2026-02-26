@@ -42,7 +42,7 @@ export default function HeroSlideshow() {
   ];
 
   return (
-    <section className="relative h-[85vh] md:h-[100vh] w-full overflow-hidden">
+    <section className="relative h-[100vh] md:h-[100vh] w-full overflow-hidden">
       <Swiper
         modules={[Autoplay, Pagination, EffectFade]}
         effect="fade"
