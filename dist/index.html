@@ -1,14 +1,98 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Basic -->
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/png" href="/assets/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-    <script type="module" crossorigin src="/assets/index-Da02uXsI.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CySiSJsn.css">
+
+    <!-- Website Title (SEO + Browser) -->
+    <title>Happy Way Travels | Sri Lanka Tour Company</title>
+
+    <!-- SEO Meta Description -->
+    <meta
+      name="description"
+      content="Happy Way Travels is a trusted Sri Lanka tours company offering guided tours, hotel bookings, transport services, and customized travel experiences across Sri Lanka."
+    />
+
+    <!-- SEO Keywords -->
+    <meta
+      name="keywords"
+      content="Sri Lanka tours company, Sri Lanka travel experts, Sri Lanka travel agency, Sri Lanka tour packages, Sri Lanka holidays, sightseeing tours Sri Lanka"
+    />
+
+    <!-- Author & Robots -->
+    <meta name="author" content="Happy Way Travels" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- ❌ REMOVE canonical from index.html (React Router pages set it dynamically) -->
+    <!-- <link rel="canonical" href="https://www.happywaytravels.com/" /> -->
+
+    <!-- Open Graph (WhatsApp / Facebook) -->
+    <meta
+      property="og:title"
+      content="Happy Way Travels | Sri Lanka Tours Company & Travel Experts"
+    />
+    <meta
+      property="og:description"
+      content="Explore Sri Lanka with Happy Way Travels a trusted Sri Lanka tours company offering tours, hotels, transport, and unforgettable travel experiences."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Happy Way Travels" />
+
+    <!-- ❌ REMOVE og:url from index.html (React Router pages set it dynamically) -->
+    <!-- <meta property="og:url" content="https://www.happywaytravels.com/" /> -->
+
+    <meta
+      property="og:image"
+      content="https://www.happywaytravels.com/assets/og-image.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Happy Way Travels | Sri Lanka Tours Company & Travel Experts"
+    />
+    <meta
+      name="twitter:description"
+      content="Book Sri Lanka tours, hotels, and transport with Happy Way Travels – your trusted Sri Lanka travel experts."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.happywaytravels.com/assets/og-image.jpg"
+    />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#065f46" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TravelAgency",
+        "name": "Happy Way Travels",
+        "url": "https://www.happywaytravels.com/",
+        "logo": "https://www.happywaytravels.com/assets/logo.png",
+        "description": "Happy Way Travels is a trusted Sri Lanka tours company offering guided tours, hotel bookings, transport services, and customized travel experiences.",
+        "sameAs": [
+          "https://www.facebook.com/happywaytravels",
+          "https://www.instagram.com/happywaytravels"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Colombo",
+          "addressCountry": "Sri Lanka"
+        }
+      }
+    </script>
+    <script type="module" crossorigin src="/assets/index-wi4d359o.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Dbbqq0rj.css">
   </head>
+
   <body>
-    <div id="root"></div>
+    <div id="root"></div>
   </body>
 </html>

@@ -1,8 +1,10 @@
 // App.js
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LoadScript } from '@react-google-maps/api';
 import 'leaflet/dist/leaflet.css';
 import { Analytics } from "@vercel/analytics/react";
+import ReactGA from "react-ga4";
 
 
 // Pages
@@ -17,6 +19,7 @@ import BlogPost from './features/blog/pages/BlogPost';
 import ScrollToTop from "./components/ScrollToTop";
 import T20LandingPage from './features/T20WorldCup/T20LandingPage';
 import WhatsAppButton from "./components/WhatsAppButton";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 
 
 // Common Components
@@ -26,8 +29,13 @@ import Footer from './components/Footer';
 const libraries = ['places'];
 
 function App() {
+   useEffect(() => {
+    ReactGA.initialize("G-7Q3055VMBE");
+  }, []);
+
   return (
     <Router>
+      <GoogleAnalytics/>
       <ScrollToTop />
        <Analytics />
      
