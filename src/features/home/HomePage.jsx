@@ -54,6 +54,8 @@ const handleVideoEnded = () => {
   }
 };
 
+const showT20Section = false;
+
 
   return (
     <div className="relative overflow-hidden bg-[#F0F0F0] text-[#010100]">
@@ -63,9 +65,8 @@ const handleVideoEnded = () => {
     
 {/* ---------------- HERO SECTION WITH HIGH-QUALITY VIDEO (NO DARKNESS) ---------------- */}
 <HeroSlideshow />
-
-
 {/* ---------------- T20 WORLD CUP FEATURE SECTION ---------------- */}
+{showT20Section && (
 <section className="py-16 bg-gradient-to-r from-[#0F3F3F] to-[#166666] text-white">
   <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
 
@@ -125,7 +126,7 @@ const handleVideoEnded = () => {
     </motion.div>
 
   </div>
-</section>
+</section>)}
 
 
 

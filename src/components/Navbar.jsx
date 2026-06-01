@@ -86,27 +86,6 @@ export default function Navbar() {
     {/* MENU */}
     <div className="absolute top-full left-6 mt-3 w-56 bg-white rounded-xl shadow-xl z-50 md:hidden p-2">
       <ul className="text-slate-700 font-medium">
-
-        {/* T20 WORLD CUP */}
-        <li>
-          <NavLink
-            to="/t20-world-cup"
-            onClick={() => setIsOpen(false)}
-            className={({ isActive }) =>
-              `block px-5 py-3 rounded-full text-center font-semibold transition-all mb-3
-              ${
-                isActive
-                  ? "bg-yellow-400 text-black"
-                  : scrolled
-                  ? "bg-yellow-300/90 text-black hover:bg-yellow-400"
-                  : "bg-yellow-400/90 text-black hover:bg-yellow-300"
-              }`
-            }
-          >
-            🏏 T20 World Cup
-          </NavLink>
-        </li>
-
         {/* Other menu items */}
         {[
           ["/", "Home"],
@@ -151,27 +130,6 @@ export default function Navbar() {
 
         {/* ---------------- DESKTOP NAV ---------------- */}
         <ul className="hidden md:flex gap-8 font-medium items-center">
-
-          {/* ✅ T20 WORLD CUP FEATURE LINK */}
-          <li>
-            <NavLink
-              to="/t20-world-cup"
-              className={({ isActive }) =>
-                `
-                px-4 py-2 rounded-full font-semibold transition-all
-                ${
-                  isActive
-                    ? "bg-yellow-400 text-black"
-                    : scrolled
-                    ? "bg-yellow-300/90 text-black hover:bg-yellow-400"
-                    : "bg-yellow-400/90 text-black hover:bg-yellow-300"
-                }
-                `
-              }
-            >
-              🏏 T20 World Cup
-            </NavLink>
-          </li>
 
           {[
             ["/", "Home"],
