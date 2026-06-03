@@ -15,7 +15,7 @@ import {
   Users,
 } from 'lucide-react';
 
-import heroFamilyDriver from '../../../public/assets/FreeItinerary/hero-family-driver.png';
+import heroFamilyDriver from '../../../public/assets/FreeItinerary/hero-family-driver.webp';
 
 const travelTypes = [
   'Family Trip',
