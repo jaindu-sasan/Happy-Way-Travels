@@ -90,6 +90,7 @@ export default function Navbar() {
         {[
           ["/", "Home"],
           ["/sri-lanka-tour-packages", "Tour Packages"],
+          ["/free-sri-lanka-itinerary", "Free Itinerary"],
           ["/blog", "Blog"],
           ["/about", "About"],
           ["/contact", "Contact"],
@@ -134,6 +135,7 @@ export default function Navbar() {
           {[
             ["/", "Home"],
             ["/sri-lanka-tour-packages", "Tour Packages"],
+            ["/free-sri-lanka-itinerary", "Free Itinerary"],
             ["/blog", "Blog"],
             ["/about", "About"],
             ["/contact", "Contact"],
