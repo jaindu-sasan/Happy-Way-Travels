@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import {
-  CalendarDays,
   Car,
   CheckCircle2,
   Clock,
@@ -8,7 +7,6 @@ import {
   Lock,
   MapPinned,
   MessageCircle,
-  Palmtree,
   Plane,
   ShieldCheck,
   Sparkles,
@@ -26,75 +24,75 @@ const travelTypes = [
   'Other',
 ];
 
-
-const budgetLevels = ['Budget', 'Mid Range', 'Luxury', 'Not Sure Yet'];
 const driverOptions = [
-  'Yes, I need a private driver',
-  'Maybe, I need route advice',
-  'No, itinerary only',
-];
-
-const interests = [
-  'Private Driver / Road Trip',
-  'Airport Pickup / Drop',
-  'Kandy / Ella Route',
-  'Sigiriya / Cultural Triangle',
-  'Safari Transfers',
-  'South Coast Transfers',
-  'Train + Driver Mix',
-  'Honeymoon Route',
-  'Family Friendly Route',
-  'Beaches',
-  'Wildlife Safari',
-  'Hill Country',
+  'Private car',
+  'Private van',
+  'Not sure - need advice',
 ];
 
 const benefits = [
   {
     title: 'Free Driver Cost Estimate',
-    description: 'Send your route, dates, and group size. We will estimate the best private driver option for your trip.',
+    description:
+      'Send your dates, route and group size. We will estimate the best private driver option for your Sri Lanka trip.',
     icon: Car,
   },
   {
-    title: 'Route-Based Travel Advice',
-    description: 'Get help choosing where to use a driver and where to use the scenic train, especially Kandy to Ella.',
+    title: 'Made for Real Routes',
+    description:
+      'Airport, Sigiriya, Kandy, Ella, safari routes, south coast transfers and full round tours.',
     icon: MapPinned,
   },
   {
-    title: 'Airport, Safari & Transfers',
-    description: 'We can help with airport pickup, Sigiriya, Kandy, Ella, safari routes, and south coast transfers.',
+    title: 'Train + Driver Advice',
+    description:
+      'Use the scenic train where it makes sense and a private driver for luggage, transfers and long-distance routes.',
     icon: Plane,
   },
   {
     title: 'No Booking Pressure',
-    description: 'Ask for the cost first. Book only if the route, vehicle, and price feel right for your trip.',
+    description:
+      'Ask for the route and cost first. Book only if the vehicle, route and price feel right for your trip.',
     icon: HeartHandshake,
   },
 ];
 
 const steps = [
   {
-    title: 'Send your route',
-    description: 'Share your travel dates, pickup city, places, group size, and vehicle preference.',
+    title: 'Share your route',
+    description:
+      'Send your travel month, pickup point, drop point, places you want to visit and number of travelers.',
     icon: Users,
   },
   {
-    title: 'We check the best option',
-    description: 'Our local team suggests a realistic route with private driver or train + driver options.',
+    title: 'We plan the best option',
+    description:
+      'Our local team checks your route and suggests a realistic private driver or train + driver plan.',
     icon: MapPinned,
   },
   {
-    title: 'You get the cost estimate',
-    description: 'Receive a free route idea and driver cost estimate before you decide to book.',
+    title: 'Receive your estimate',
+    description:
+      'You receive a free route idea and private driver cost estimate before making any booking decision.',
     icon: CheckCircle2,
   },
 ];
 
 const faqs = [
   {
-    question: 'Is the private driver cost estimate free?',
+    question: 'Is the Sri Lanka private driver cost estimate free?',
     answer:
-      'Yes. The first route idea and private driver cost estimate are free. We use your dates, route, number of travelers, luggage, and vehicle preference to suggest a suitable option.',
+      'Yes. The first route idea and private driver cost estimate are free. We use your dates, route, number of travelers, luggage and vehicle preference to suggest a suitable option.',
+  },
+  {
+    question: 'Can you arrange airport pickup and drop?',
+    answer:
+      'Yes. We can help with Colombo Airport pickup and drop, Kandy, Ella, Sigiriya, safari routes, south coast transfers and full round tours.',
+  },
+  {
+    question: 'Can I mix the Kandy to Ella train with a private driver?',
+    answer:
+      'Yes. Many travelers take the scenic train for Kandy or Nanu Oya to Ella and use a private driver for luggage, airport transfers, Sigiriya, safari routes and south coast travel.',
   },
   {
     question: 'Do I need to book after receiving the cost?',
@@ -102,19 +100,9 @@ const faqs = [
       'No. There is no obligation to book. You can review the route and estimate first, then decide only if you are comfortable.',
   },
   {
-    question: 'Can you arrange airport pickup and long transfers?',
+    question: 'What details do you need for an accurate estimate?',
     answer:
-      'Yes. We can help with airport pickup and drop, Sigiriya, Kandy, Ella, safari routes, south coast transfers, and full round tours.',
-  },
-  {
-    question: 'Can I mix train and private driver?',
-    answer:
-      'Yes. Many travelers take the scenic train for Kandy or Nanu Oya to Ella and use a private driver for luggage, airport transfers, Sigiriya, safari routes, and south coast travel.',
-  },
-  {
-    question: 'What details do you need to estimate the cost?',
-    answer:
-      'We need your travel dates, number of travelers, pickup and drop locations, places you want to visit, luggage amount, and whether you prefer a car or van.',
+      'We need your travel month or dates, number of travelers, pickup and drop locations, places you want to visit, luggage amount and whether you prefer a car or van.',
   },
 ];
 
@@ -129,8 +117,6 @@ const initialFormData = {
   exactTripDays: '',
   pickupLocation: '',
   placesToVisit: '',
-  budgetLevel: '',
-  interests: [],
   privateDriver: '',
   message: '',
 };
@@ -154,23 +140,10 @@ function FreeItineraryPage() {
     }));
   };
 
-  const handleInterestChange = (event) => {
-    const { value, checked } = event.target;
-    setSubmitted(false);
-    setErrorMessage('');
-
-    setFormData((currentData) => ({
-      ...currentData,
-      interests: checked
-        ? [...currentData.interests, value]
-        : currentData.interests.filter((interest) => interest !== value),
-    }));
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    console.log('Sri Lanka private driver cost request:', formData);
+    console.log('Google Ads private driver lead:', formData);
 
     setLoading(true);
     setErrorMessage('');
@@ -179,9 +152,9 @@ function FreeItineraryPage() {
       const response = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
         body: JSON.stringify({
-          _subject: 'Sri Lanka Private Driver Cost Estimate Request',
+          _subject: 'Google Ads Lead - Sri Lanka Private Driver Cost Estimate',
+          leadSource: 'Google Search Ads - Private Driver Landing Page',
           ...formData,
-          interests: formData.interests.join(', '),
         }),
         headers: {
           Accept: 'application/json',
@@ -206,14 +179,13 @@ function FreeItineraryPage() {
   };
 
   const whatsappUrl = `https://wa.me/94710455391?text=${encodeURIComponent(
-    'Hi, I would like to get a private driver cost estimate for my Sri Lanka trip.'
+    'Hi, I found you on Google. I want a Sri Lanka private driver cost estimate. My travel dates, number of people and route are:'
   )}`;
 
   return (
     <div className="bg-[var(--color-light)] text-[var(--color-darkGray)]">
       {/* HERO */}
-{/* HERO */}
-  <section className="relative overflow-hidden bg-[var(--color-dark)]">
+      <section className="relative overflow-hidden bg-[var(--color-dark)]">
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)] via-[var(--color-secondary)] to-[var(--color-dark)]" />
 
         <div className="absolute inset-0 opacity-20">
@@ -222,20 +194,23 @@ function FreeItineraryPage() {
           <div className="absolute bottom-0 right-1/3 h-72 w-72 rounded-full bg-[var(--color-secondary)] blur-3xl" />
         </div>
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_0.95fr] lg:px-8 lg:py-24">
-          {/* LEFT CONTENT */}
+        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:px-8 lg:py-20">
           <div className="text-white">
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold backdrop-blur">
               <Sparkles className="h-4 w-4 text-white" />
-              Free private driver cost estimate
+              Free route plan + private driver cost estimate
             </div>
 
             <h1 className="max-w-3xl text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-[52px]">
               Sri Lanka Private Driver Cost Estimate
             </h1>
 
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/85">
-              Planning Sri Lanka from the UK, Europe, Australia or anywhere in the world? Send your route, dates, and group size. Our local team will share a free route idea with a private driver cost estimate — no payment and no obligation to book.
+            <p className="mt-5 max-w-2xl text-xl font-semibold leading-8 text-white">
+              Planning Sri Lanka from the UK, Europe or Australia?
+            </p>
+
+            <p className="mt-3 max-w-2xl text-lg leading-8 text-white/85">
+              Send your travel dates, route and number of people. Our local team will send a free route idea with a private driver cost estimate for airport transfers, Sigiriya, Kandy, Ella, safari routes and south coast travel.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -243,7 +218,7 @@ function FreeItineraryPage() {
                 href="#itinerary-form"
                 className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-base font-bold text-[var(--color-primary)] shadow-xl transition hover:bg-[var(--color-light)]"
               >
-                Get Driver Cost Estimate
+                Get Free Cost Estimate
               </a>
 
               <a
@@ -259,30 +234,29 @@ function FreeItineraryPage() {
 
             <div className="mt-8 grid max-w-2xl gap-3 sm:grid-cols-3">
               <TrustPill icon={Lock} text="No payment required" />
-              <TrustPill icon={ShieldCheck} text="Fast WhatsApp reply" />
-              <TrustPill icon={HeartHandshake} text="No booking pressure" />
+              <TrustPill icon={ShieldCheck} text="Local route advice" />
+              <TrustPill icon={Clock} text="Fast WhatsApp reply" />
             </div>
           </div>
 
-          {/* RIGHT IMAGE */}
           <div className="relative">
             <div className="rounded-[2rem] border border-white/20 bg-white/10 p-4 shadow-2xl backdrop-blur">
               <div className="relative overflow-hidden rounded-[1.5rem] bg-[var(--color-light)]">
                 <img
                   src={heroFamilyDriver}
-                  alt="Travelers in Sri Lanka with private driver and local tour support"
+                  alt="Sri Lanka private driver support for travelers"
                   className="h-[520px] w-full object-cover"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-dark)]/75 via-[var(--color-dark)]/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-dark)]/80 via-[var(--color-dark)]/15 to-transparent" />
 
-                <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/20 bg-[var(--color-dark)]/55 p-5 text-white shadow-xl backdrop-blur-md">
+                <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/20 bg-[var(--color-dark)]/60 p-5 text-white shadow-xl backdrop-blur-md">
                   <p className="text-sm font-semibold text-white/75">
-                    Sri Lanka private driver support
+                    Search ad offer
                   </p>
 
                   <h2 className="mt-1 text-xl font-extrabold leading-snug sm:text-2xl">
-                    Free route advice + private driver cost estimate
+                    Free route advice + driver cost estimate before you book
                   </h2>
                 </div>
               </div>
@@ -295,8 +269,8 @@ function FreeItineraryPage() {
                 </div>
 
                 <div>
-                  <p className="text-sm font-bold text-[var(--color-dark)]">Free Cost Estimate</p>
-                  <p className="text-xs text-[var(--color-darkGray)]">No payment required</p>
+                  <p className="text-sm font-bold text-[var(--color-dark)]">Free Estimate</p>
+                  <p className="text-xs text-[var(--color-darkGray)]">No booking pressure</p>
                 </div>
               </div>
             </div>
@@ -316,9 +290,22 @@ function FreeItineraryPage() {
           </div>
         </div>
       </section>
+
       {/* BENEFITS */}
       <section className="bg-[var(--color-light)] py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-8 text-center">
+            <p className="text-sm font-bold uppercase tracking-wide text-[var(--color-primary)]">
+              For Google search visitors
+            </p>
+            <h2 className="mt-3 text-3xl font-extrabold text-[var(--color-dark)]">
+              Searching for a Sri Lanka private driver?
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl leading-7 text-[var(--color-darkGray)]">
+              Get a simple estimate before you decide. We help with private driver hire, airport transfers, round tours and train + driver route planning.
+            </p>
+          </div>
+
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {benefits.map(({ title, description, icon: Icon }) => (
               <div
@@ -329,7 +316,7 @@ function FreeItineraryPage() {
                   <Icon className="h-6 w-6" />
                 </div>
 
-                <h2 className="text-lg font-bold text-[var(--color-dark)]">{title}</h2>
+                <h3 className="text-lg font-bold text-[var(--color-dark)]">{title}</h3>
                 <p className="mt-3 text-sm leading-6 text-[var(--color-darkGray)]">
                   {description}
                 </p>
@@ -352,7 +339,7 @@ function FreeItineraryPage() {
             </h2>
 
             <p className="mt-5 leading-7 text-white/75">
-              We keep the process simple so you can understand the route and transport cost before booking.
+              A simple process for travelers who want to know the route and transport cost before booking.
             </p>
           </div>
 
@@ -385,22 +372,22 @@ function FreeItineraryPage() {
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
           <div className="lg:sticky lg:top-24 lg:self-start">
             <p className="text-sm font-bold uppercase tracking-wide text-[var(--color-primary)]">
-              Request your cost
+              Request your free estimate
             </p>
 
             <h2 className="mt-3 text-3xl font-extrabold text-[var(--color-dark)] sm:text-4xl">
-              Get Your Private Driver Cost Estimate
+              Get Your Sri Lanka Private Driver Cost
             </h2>
 
             <p className="mt-5 leading-7 text-[var(--color-darkGray)]">
-              Tell us your travel dates, pickup location, places you want to visit, and group size. We will suggest the best private driver or train + driver route for your Sri Lanka trip.
+              Fill this short form or message us on WhatsApp. We will suggest the best private driver or train + driver route for your Sri Lanka trip.
             </p>
 
             <div className="mt-8 space-y-4">
               <SideNote
                 icon={CheckCircle2}
-                title="Better details = better cost estimate"
-                text="Pickup city, places, days, luggage, and vehicle preference help us estimate the driver cost more accurately."
+                title="Best for high-intent travelers"
+                text="If you are already searching for Sri Lanka driver hire, this page is made to give you a fast estimate."
               />
 
               <SideNote
@@ -411,8 +398,8 @@ function FreeItineraryPage() {
 
               <SideNote
                 icon={Clock}
-                title="Faster reply on WhatsApp"
-                text="For urgent travel dates, send us a WhatsApp message after submitting the form."
+                title="Need it faster?"
+                text="For urgent travel dates, use the WhatsApp button and send your route, dates and group size."
               />
             </div>
           </div>
@@ -435,11 +422,11 @@ function FreeItineraryPage() {
 
                 <div>
                   <h3 className="font-bold text-[var(--color-dark)]">
-                    Your driver cost request is safe
+                    Free estimate. No payment. No obligation.
                   </h3>
 
                   <p className="mt-2 text-sm leading-6 text-[var(--color-darkGray)]">
-                    We only use your information to prepare your Sri Lanka route and private driver cost estimate. We do not sell your details, spam you, or share your information with third parties.
+                    Send your basic trip details and we will contact you with route advice and a private driver cost estimate.
                   </p>
                 </div>
               </div>
@@ -461,6 +448,15 @@ function FreeItineraryPage() {
               />
 
               <Input
+                label="WhatsApp Number"
+                name="whatsapp"
+                value={formData.whatsapp}
+                onChange={handleChange}
+                required
+                placeholder="Include country code"
+              />
+
+              <Input
                 label="Email Address (Optional)"
                 name="email"
                 type="email"
@@ -469,26 +465,20 @@ function FreeItineraryPage() {
               />
 
               <Input
-                label="WhatsApp Number"
-                name="whatsapp"
-                value={formData.whatsapp}
-                onChange={handleChange}
-                required
-              />
-
-              <Input
                 label="Country"
                 name="country"
                 value={formData.country}
                 onChange={handleChange}
+                placeholder="Example: United Kingdom"
               />
 
               <Input
-                label="Travel Month"
+                label="Travel Month / Dates"
                 name="travelMonth"
                 value={formData.travelMonth}
                 onChange={handleChange}
                 placeholder="Example: March 2026"
+                required
               />
 
               <Input
@@ -498,14 +488,7 @@ function FreeItineraryPage() {
                 min="1"
                 value={formData.travelers}
                 onChange={handleChange}
-              />
-
-              <Select
-                label="Travel Type"
-                name="travelType"
-                value={formData.travelType}
-                onChange={handleChange}
-                options={travelTypes}
+                required
               />
 
               <Input
@@ -518,8 +501,16 @@ function FreeItineraryPage() {
                 placeholder="Example: 10"
               />
 
+              <Select
+                label="Travel Type"
+                name="travelType"
+                value={formData.travelType}
+                onChange={handleChange}
+                options={travelTypes}
+              />
+
               <Input
-                label="Pickup Location / Arrival Airport"
+                label="Pickup Location / Arrival Airport (Optional)"
                 name="pickupLocation"
                 value={formData.pickupLocation}
                 onChange={handleChange}
@@ -532,20 +523,17 @@ function FreeItineraryPage() {
                 value={formData.placesToVisit}
                 onChange={handleChange}
                 placeholder="Example: Sigiriya, Kandy, Ella, Bentota"
+                required
               />
 
-       
-
               <Select
-                label="Transport Help Needed?"
+                label="Vehicle Preference"
                 name="privateDriver"
                 value={formData.privateDriver}
                 onChange={handleChange}
                 options={driverOptions}
               />
             </div>
-
- 
 
             <label className="mt-7 block">
               <span className="text-sm font-bold text-[var(--color-dark)]">
@@ -558,7 +546,7 @@ function FreeItineraryPage() {
                 onChange={handleChange}
                 rows="5"
                 className="mt-2 w-full rounded-2xl border border-[var(--color-midGray)] bg-white/80 px-4 py-3 text-[var(--color-darkGray)] outline-none transition placeholder:text-gray-400 focus:border-[var(--color-primary)] focus:ring-4 focus:ring-[var(--color-primary)]/20"
-                placeholder="Tell us your pickup/drop locations, luggage amount, route plan, train ride plans, kids, hotel areas, or anything important."
+                placeholder="Example: Airport pickup, Sigiriya 2 nights, Kandy, Ella, Yala safari, Bentota, airport drop. Tell us luggage, kids, train ride plans or hotel areas."
               />
             </label>
 
@@ -567,12 +555,11 @@ function FreeItineraryPage() {
               disabled={loading}
               className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-primary)] px-6 py-4 text-base font-bold text-white shadow-lg transition hover:bg-[var(--color-secondary)] disabled:cursor-not-allowed disabled:bg-gray-500"
             >
-              {loading ? 'Sending Your Request...' : 'Get Driver Cost Estimate'}
+              {loading ? 'Sending Your Request...' : 'Request Free Driver Cost Estimate'}
             </button>
 
             <p className="mt-4 text-xs leading-5 text-[var(--color-darkGray)]">
-              By submitting this form, you agree that we may contact you by email or WhatsApp about
-              your Sri Lanka private driver cost request. No payment is required and there is no obligation to book.
+              By submitting this form, you agree that we may contact you by email or WhatsApp about your Sri Lanka private driver cost request. No payment is required and there is no obligation to book.
             </p>
           </form>
         </div>
@@ -589,7 +576,7 @@ function FreeItineraryPage() {
             <h2 className="mt-5 text-3xl font-extrabold">Need the Driver Cost Faster?</h2>
 
             <p className="mx-auto mt-4 max-w-2xl text-white/80">
-              Message our team on WhatsApp with your travel dates, number of travelers, pickup city, and places you want to visit.
+              Message us on WhatsApp with your travel dates, number of travelers, pickup city and places you want to visit.
             </p>
 
             <a
@@ -599,7 +586,7 @@ function FreeItineraryPage() {
               className="mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3 font-bold text-[var(--color-primary)] shadow-lg transition hover:bg-[var(--color-light)]"
             >
               <MessageCircle className="h-5 w-5" />
-              WhatsApp Driver Cost
+              WhatsApp Driver Cost Now
             </a>
           </div>
         </div>
@@ -638,28 +625,19 @@ function FreeItineraryPage() {
           </div>
         </div>
       </section>
-    </div>
-  );
-}
 
-function HeroCard({ icon: Icon, label, title, dark = false }) {
-  return (
-    <div
-      className={`rounded-2xl p-5 ${
-        dark
-          ? 'bg-[var(--color-dark)] text-white'
-          : 'border border-[var(--color-lightGray)] bg-white/80'
-      }`}
-    >
-      <Icon className={`h-8 w-8 ${dark ? 'text-white' : 'text-[var(--color-primary)]'}`} />
-
-      <p className={`mt-8 text-sm font-semibold ${dark ? 'text-white/60' : 'text-gray-500'}`}>
-        {label}
-      </p>
-
-      <p className={`text-2xl font-bold ${dark ? 'text-white' : 'text-[var(--color-dark)]'}`}>
-        {title}
-      </p>
+      {/* MOBILE STICKY WHATSAPP */}
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[var(--color-midGray)] bg-white p-3 shadow-2xl sm:hidden">
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-primary)] px-5 py-3 text-sm font-bold text-white"
+        >
+          <MessageCircle className="h-5 w-5" />
+          WhatsApp Driver Cost
+        </a>
+      </div>
     </div>
   );
 }
